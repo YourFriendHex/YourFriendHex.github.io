@@ -32,10 +32,6 @@ async function loadLevel() {
     // Find the level that matches the ID in the URL
     const level = levels.find(level => level.levelID === levelID);
 
-    // Find everyone who completed this level (Victors)
-    const victors = completions.filter(completion =>
-    completion.levelID === levelID
-    );
 
     console.log(level);
 
@@ -46,6 +42,7 @@ async function loadLevel() {
     document.getElementById("level-points").textContent = level.points;
     document.getElementById("level-verifier").textContent = level.verifier;
     document.getElementById("level-id").textContent = level.levelID;
+    
 
     // Find the copy button
     const copyButton = document.getElementById("copy-id-button");
