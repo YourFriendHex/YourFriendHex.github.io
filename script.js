@@ -21,6 +21,19 @@ async function loadLevels() {
     
     // Sort levels from highest rank to lowest rank
     levels.sort((a, b) => a.rank - b.rank);
+
+    // Separate levels by their status
+    const rankedLevels = levels.filter(level =>
+    level.status === "Ranked"
+    );
+
+    const upcomingLevels = levels.filter(level =>
+    level.status === "Upcoming"
+    );
+
+    const impossibleLevels = levels.filter(level =>
+    level.status === "Impossible"
+    );
     
     // Find the list on the webpage
     const list = document.getElementById("level-list");
