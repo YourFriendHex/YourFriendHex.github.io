@@ -116,7 +116,7 @@ if (upcomingLevels.length === 0) {
 
                 <div class="level-info">
                     <div class="level-name">${level.name}</div>
-                    <div class="creator">by ${level.creator}</div>
+                    <div class="creator">by ${level.creator} • To be verified by ${level.verifier}</div>
                 </div>
 
             </a>
