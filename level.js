@@ -42,6 +42,7 @@ async function loadLevel() {
     document.getElementById("level-points").textContent = level.points;
     document.getElementById("level-verifier").textContent = level.verifier;
     document.getElementById("level-id").textContent = level.levelID;
+    document.getElementById("level-thumbnail").src = level.thumbnail;
     
 
     // Find the copy button
