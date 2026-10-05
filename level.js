@@ -6,32 +6,31 @@ async function loadLevel() {
     // Get the level ID from the URL
     const levelID = params.get("id");
 
-    // Get list of levels and data from Google Sheets
+    // Get level data from Google Sheets
     const levelRows = await getSheet("Levels");
 
-    // Find everyone who completed this level except for the verifier
-    const victors = completions.filter(completion =>
-    completion.levelID === levelID &&
-    completion.player !== level.verifier
-    );
+    // Get completion data from Google Sheets
+    const completions = await getCompletions();
 
+    // Turn the spreadsheet rows into level objects
     const levels = levelRows.map(row => {
 
-    return {
-        levelID: row[0],
-        name: row[1],
-        rank: Number(row[2]),
-        points: Number(row[3]),
-        creator: row[4],
-        verifier: row[5],
-        thumbnail: row[6]
-    };
+        return {
+            levelID: row[0],
+            name: row[1],
+            rank: Number(row[2]),
+            points: Number(row[3]),
+            creator: row[4],
+            verifier: row[5],
+            thumbnail: row[6]
+        };
 
-});
+    });
 
     // Find the level that matches the ID in the URL
-    const level = levels.find(level => level.levelID === levelID);
-
+    const level = levels.find(level =>
+        level.levelID === levelID
+    );
 
     console.log(level);
 
@@ -42,8 +41,49 @@ async function loadLevel() {
     document.getElementById("level-points").textContent = level.points;
     document.getElementById("level-verifier").textContent = level.verifier;
     document.getElementById("level-id").textContent = level.levelID;
+
+    // Display the thumbnail
     document.getElementById("level-thumbnail").src = level.thumbnail;
-    
+
+    // Find everyone who completed this level,
+    // except for the verifier
+    const victors = completions.filter(completion =>
+        completion.levelID === levelID &&
+        completion.player !== level.verifier
+    );
+
+    // Find the victor list on the page
+    const victorList = document.getElementById("victor-list");
+
+    // Check if nobody has completed the level
+    if (victors.length === 0) {
+
+        victorList.textContent = "No one has completed this level yet.";
+
+    } else {
+
+        // Create an entry for every victor
+        victors.forEach((victor, index) => {
+
+            const victorElement = document.createElement("div");
+
+            victorElement.classList.add("victor");
+
+            victorElement.innerHTML = `
+                <span class="victor-rank">
+                    #${index + 1}
+                </span>
+
+                <a href="playerdata.html?name=${encodeURIComponent(victor.player)}">
+                    ${victor.player}
+                </a>
+            `;
+
+            victorList.appendChild(victorElement);
+
+        });
+
+    }
 
     // Find the copy button
     const copyButton = document.getElementById("copy-id-button");
@@ -61,38 +101,6 @@ async function loadLevel() {
 
     });
 
-    // Find the victor list on the page
-const victorList = document.getElementById("victor-list");
-
-// Check if nobody has completed the level
-if (victors.length === 0) {
-
-    victorList.textContent = "No one has completed this level yet.";
-
-} else {
-
-    // Create an entry for every victor
-    victors.forEach((victor, index) => {
-
-        const victorElement = document.createElement("div");
-
-        victorElement.classList.add("victor");
-
-        victorElement.innerHTML = `
-            <span class="victor-rank">
-                #${index + 1}
-            </span>
-
-            <a href="playerdata.html?name=${encodeURIComponent(victor.player)}">
-                ${victor.player}
-            </a>
-        `;
-
-        victorList.appendChild(victorElement);
-
-        });
-
-    }
 }
 
 loadLevel();
