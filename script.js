@@ -87,33 +87,46 @@ const upcomingTitle = document.createElement("h2");
 upcomingTitle.textContent = "Upcoming Levels";
 list.appendChild(upcomingTitle);
 
-// Create an entry for every upcoming level
-upcomingLevels.forEach(level => {
+// Check if there are any upcoming levels
+if (upcomingLevels.length === 0) {
 
-    const levelElement = document.createElement("div");
+    const message = document.createElement("p");
 
-    levelElement.classList.add("level");
+    message.textContent = "There are currently no upcoming levels.";
 
-    levelElement.innerHTML = `
-        <a href="level.html?id=${level.levelID}" class="level-link">
+    list.appendChild(message);
 
-            <img
-                src="${level.thumbnail}"
-                alt="${level.name} thumbnail"
-                class="level-thumbnail"
-            >
+} else {
 
-            <div class="level-info">
-                <div class="level-name">${level.name}</div>
-                <div class="creator">by ${level.creator}</div>
-            </div>
+    // Create an entry for every upcoming level
+    upcomingLevels.forEach(level => {
 
-        </a>
-    `;
+        const levelElement = document.createElement("div");
 
-    list.appendChild(levelElement);
+        levelElement.classList.add("level");
 
-});
+        levelElement.innerHTML = `
+            <a href="level.html?id=${level.levelID}" class="level-link">
+
+                <img
+                    src="${level.thumbnail}"
+                    alt="${level.name} thumbnail"
+                    class="level-thumbnail"
+                >
+
+                <div class="level-info">
+                    <div class="level-name">${level.name}</div>
+                    <div class="creator">by ${level.creator}</div>
+                </div>
+
+            </a>
+        `;
+
+        list.appendChild(levelElement);
+
+    });
+
+}
 
 
 // Create the Impossible Levels section
@@ -121,33 +134,46 @@ const impossibleTitle = document.createElement("h2");
 impossibleTitle.textContent = "Impossible Levels";
 list.appendChild(impossibleTitle);
 
-// Create an entry for every impossible level
-impossibleLevels.forEach(level => {
+// Check if there are any impossible levels
+if (impossibleLevels.length === 0) {
 
-    const levelElement = document.createElement("div");
+    const message = document.createElement("p");
 
-    levelElement.classList.add("level");
+    message.textContent = "There are currently no impossible levels.";
 
-    levelElement.innerHTML = `
-        <a href="level.html?id=${level.levelID}" class="level-link">
+    list.appendChild(message);
 
-            <img
-                src="${level.thumbnail}"
-                alt="${level.name} thumbnail"
-                class="level-thumbnail"
-            >
+} else {
 
-            <div class="level-info">
-                <div class="level-name">${level.name}</div>
-                <div class="creator">by ${level.creator}</div>
-            </div>
+    // Create an entry for every impossible level
+    impossibleLevels.forEach(level => {
 
-        </a>
-    `;
+        const levelElement = document.createElement("div");
 
-    list.appendChild(levelElement);
+        levelElement.classList.add("level");
 
-});
+        levelElement.innerHTML = `
+            <a href="level.html?id=${level.levelID}" class="level-link">
+
+                <img
+                    src="${level.thumbnail}"
+                    alt="${level.name} thumbnail"
+                    class="level-thumbnail"
+                >
+
+                <div class="level-info">
+                    <div class="level-name">${level.name}</div>
+                    <div class="creator">by ${level.creator}</div>
+                </div>
+
+            </a>
+        `;
+
+        list.appendChild(levelElement);
+
+    });
+
+}
 }
 
 loadLevels();
