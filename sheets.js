@@ -184,3 +184,61 @@ function tagColor(tag) {
 
     return "#" + color.padStart(6, "0");
 }
+
+function createTagHTML(player) {
+
+    // If the player has no tags, return nothing
+    if (!player || !player.tags) {
+        return "";
+    }
+
+    // Turn the tag string into an array
+    const tags = player.tags
+        .split(",")
+        .map(tag => tag.trim());
+
+    // Turn the gradient string into an array
+    const gradientColors = player.gradient
+        ? player.gradient.split(",").map(color => color.trim())
+        : [];
+
+    // Create the HTML for every tag
+    const tagHTML = tags.map((tag, index) => {
+
+        // Get the three colors belonging to this tag
+        const colors = gradientColors.slice(
+            index * 3,
+            index * 3 + 3
+        );
+
+        // If no custom colors were specified,
+        // generate a color from the tag name
+        if (colors.length === 0) {
+            colors.push(tagColor(tag));
+        }
+
+        // Create the CSS gradient
+        const gradient =
+            `linear-gradient(to right, ${colors.join(", ")})`;
+
+        // Use the first color for the text
+        const textColor = colors[0];
+
+        return `
+            <span
+                class="player-tag"
+                style="
+                    color: ${textColor};
+                    background:
+                        linear-gradient(white, white) padding-box,
+                        ${gradient} border-box;
+                "
+            >
+                ${tag}
+            </span>
+        `;
+
+    }).join("");
+
+    return tagHTML;
+}
