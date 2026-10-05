@@ -38,41 +38,116 @@ async function loadLevels() {
     // Find the list on the webpage
     const list = document.getElementById("level-list");
 
-    // Create an entry for every level
-    levels.forEach(level => {
+    // Create the Ranked Levels section
+const rankedTitle = document.createElement("h2");
+rankedTitle.textContent = "Ranked Levels";
+list.appendChild(rankedTitle);
 
-        const levelElement = document.createElement("div");
-        levelElement.classList.add("level");
+// Create an entry for every ranked level
+rankedLevels.forEach(level => {
 
-        levelElement.innerHTML = `
-            <a href="level.html?id=${level.levelID}" class="level-link">
+    const levelElement = document.createElement("div");
 
-                <img
+    levelElement.classList.add("level");
+
+    levelElement.innerHTML = `
+        <a href="level.html?id=${level.levelID}" class="level-link">
+
+            <img
                 src="${level.thumbnail}"
                 alt="${level.name} thumbnail"
                 class="level-thumbnail"
-                >
+            >
 
-                <div class="rank">#${level.rank}</div>
+            <div class="rank">#${level.rank}</div>
 
-                <div class="level-info">
-                    <div class="level-name">${level.name}</div>
-                    <div class="creator">by ${level.creator}</div>
-                </div>
+            <div class="level-info">
+                <div class="level-name">${level.name}</div>
+                <div class="creator">by ${level.creator}</div>
+            </div>
 
-                <div class="points">
-                    ${level.points} pts
-                </div>
+            <div class="points">
+                ${level.points} pts
+            </div>
 
-                <div class="verifier">
-                    Verified by ${level.verifier}
-                </div>
+            <div class="verifier">
+                Verified by ${level.verifier}
+            </div>
 
-            </a>
-        `;
+        </a>
+    `;
 
-        list.appendChild(levelElement);
-    });
+    list.appendChild(levelElement);
+
+});
+
+
+// Create the Upcoming Levels section
+const upcomingTitle = document.createElement("h2");
+upcomingTitle.textContent = "Upcoming Levels";
+list.appendChild(upcomingTitle);
+
+// Create an entry for every upcoming level
+upcomingLevels.forEach(level => {
+
+    const levelElement = document.createElement("div");
+
+    levelElement.classList.add("level");
+
+    levelElement.innerHTML = `
+        <a href="level.html?id=${level.levelID}" class="level-link">
+
+            <img
+                src="${level.thumbnail}"
+                alt="${level.name} thumbnail"
+                class="level-thumbnail"
+            >
+
+            <div class="level-info">
+                <div class="level-name">${level.name}</div>
+                <div class="creator">by ${level.creator}</div>
+            </div>
+
+        </a>
+    `;
+
+    list.appendChild(levelElement);
+
+});
+
+
+// Create the Impossible Levels section
+const impossibleTitle = document.createElement("h2");
+impossibleTitle.textContent = "Impossible Levels";
+list.appendChild(impossibleTitle);
+
+// Create an entry for every impossible level
+impossibleLevels.forEach(level => {
+
+    const levelElement = document.createElement("div");
+
+    levelElement.classList.add("level");
+
+    levelElement.innerHTML = `
+        <a href="level.html?id=${level.levelID}" class="level-link">
+
+            <img
+                src="${level.thumbnail}"
+                alt="${level.name} thumbnail"
+                class="level-thumbnail"
+            >
+
+            <div class="level-info">
+                <div class="level-name">${level.name}</div>
+                <div class="creator">by ${level.creator}</div>
+            </div>
+
+        </a>
+    `;
+
+    list.appendChild(levelElement);
+
+});
 }
 
 loadLevels();
