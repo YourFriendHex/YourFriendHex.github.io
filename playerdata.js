@@ -1,121 +1,47 @@
-async function loadPlayer() {
+async function loadPlayers() {
 
-    // Get the player's name from the URL
-    const params = new URLSearchParams(window.location.search);
-    const playerName = params.get("name");
+    // Get the player scores
+    const players = await getPlayerScores();
 
-    // Get all of our data
-    const players = await getPlayers();
-    const completions = await getCompletions();
-    const levelRows = await getSheet("Levels");
+    // Sort players from highest score to lowest score
+    players.sort((a, b) => b.points - a.points);
 
-    // Turn the level rows into level objects
-    const levels = levelRows.map(row => {
+    // Find the player list on the page
+    const list = document.getElementById("player-list");
 
-        return {
-            levelID: row[0],
-            name: row[1],
-            rank: Number(row[2]),
-            points: Number(row[3]),
-            creator: row[4],
-            verifier: row[5]
-        };
+    // Create an entry for every player
+    players.forEach((player, index) => {
 
-    });
+        // Create the HTML for this player's tags
+        const tagHTML = createTagHTML(player);
 
-    // Find this player
-    const player = players.find(player =>
-        player.name === playerName
-    );
+        // Create the player element
+        const playerElement = document.createElement("div");
 
-        // Find this player
-const player = players.find(player =>
-    player.name === playerName
-);
+        playerElement.classList.add("player");
 
-// Create the HTML for this player's tags
-const tagHTML = createTagHTML(player);
+        playerElement.innerHTML = `
+            <a href="playerdata.html?name=${encodeURIComponent(player.name)}" class="player-link">
 
-// Find the tag container
-const tagContainer = document.getElementById("player-tags");
-
-// Display the player's tags
-tagContainer.innerHTML = tagHTML;
-
-    // Find this player's completed levels
-    const playerCompletions = completions.filter(completion =>
-        completion.player === playerName
-    );
-
-    // Find the actual level information for each completion
-    const completedLevels = playerCompletions.map(completion => {
-
-        return levels.find(level =>
-            level.levelID === completion.levelID
-        );
-
-    }).filter(level => level !== undefined);
-
-
-    // Calculate the player's total points
-    let totalPoints = 0;
-
-    completedLevels.forEach(level => {
-        totalPoints += level.points;
-    });
-
-
-    // Display the player's name
-    document.getElementById("player-name").textContent = player.name;
-
-    // Display their total points
-    document.getElementById("player-points").textContent =
-        `${totalPoints} points`;
-
-
-    // Find the completed levels section
-    const list = document.getElementById("completed-levels");
-
-    // Check if the player has no completed levels
-    if (completedLevels.length === 0) {
-
-        list.textContent = "This player has not completed any levels yet.";
-
-    }
-
-
-    // Create an entry for every completed level
-    completedLevels.forEach(level => {
-
-        const levelElement = document.createElement("div");
-
-        levelElement.classList.add("level");
-
-        levelElement.innerHTML = `
-            <a href="level.html?id=${level.levelID}" class="level-link">
-
-                <div class="rank">
-                    #${level.rank}
+                <div class="player-rank">
+                    #${index + 1}
                 </div>
 
-                <div class="level-info">
-
-                    <div class="level-name">
-                        ${level.name}
-                    </div>
-
+                <div class="player-name">
+                    ${player.name}
+                    ${tagHTML}
                 </div>
 
-                <div class="points">
-                    ${level.points} pts
+                <div class="player-points">
+                    ${player.points} pts
                 </div>
 
             </a>
         `;
 
-        list.appendChild(levelElement);
+        list.appendChild(playerElement);
 
     });
 }
 
-loadPlayer();
+loadPlayers();
