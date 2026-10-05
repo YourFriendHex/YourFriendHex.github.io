@@ -28,54 +28,19 @@ async function loadPlayer() {
         player.name === playerName
     );
 
-        // Find the player's tags
-       // Turn the player's tag string into an array
-const tags = player.tags
-    ? player.tags.split(",").map(tag => tag.trim())
-    : [];
+        // Find this player
+const player = players.find(player =>
+    player.name === playerName
+);
 
-// Turn the gradient string into an array of colors
-const gradientColors = player.gradient
-    ? player.gradient.split(",").map(color => color.trim())
-    : [];
+// Create the HTML for this player's tags
+const tagHTML = createTagHTML(player);
 
 // Find the tag container
 const tagContainer = document.getElementById("player-tags");
 
-// Create the player's tags
-tags.forEach((tag, index) => {
-
-    // Get the three colors belonging to this tag
-    const colors = gradientColors.slice(index * 3, index * 3 + 3);
-
-    // If no custom colors were specified, use the generated tag color
-    if (colors.length === 0) {
-        colors.push(tagColor(tag));
-    }
-
-    // Create the CSS gradient
-    const gradient =
-        `linear-gradient(to right, ${colors.join(", ")})`;
-
-    // Use the first color for the text
-    const textColor = colors[0];
-
-    // Create the tag element
-    const tagElement = document.createElement("span");
-
-    tagElement.classList.add("player-tag");
-
-    tagElement.textContent = tag;
-
-    tagElement.style.color = textColor;
-
-    tagElement.style.background =
-        `linear-gradient(white, white) padding-box,
-         ${gradient} border-box`;
-
-    tagContainer.appendChild(tagElement);
-
-});
+// Display the player's tags
+tagContainer.innerHTML = tagHTML;
 
     // Find this player's completed levels
     const playerCompletions = completions.filter(completion =>
