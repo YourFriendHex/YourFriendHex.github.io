@@ -63,23 +63,27 @@ async function loadLevel() {
     });
 
     // Find the victor list on the page
-    const victorList = document.getElementById("victor-list");
+const victorList = document.getElementById("victor-list");
 
-    // Check if nobody has completed the level
-    if (victors.length === 0) {
+// Check if nobody has completed the level
+if (victors.length === 0) {
 
     victorList.textContent = "No one has completed this level yet.";
 
-    } else {
+} else {
 
     // Create an entry for every victor
-    victors.forEach(victor => {
+    victors.forEach((victor, index) => {
 
         const victorElement = document.createElement("div");
 
         victorElement.classList.add("victor");
 
         victorElement.innerHTML = `
+            <span class="victor-rank">
+                #${index + 1}
+            </span>
+
             <a href="playerdata.html?name=${encodeURIComponent(victor.player)}">
                 ${victor.player}
             </a>
@@ -87,9 +91,9 @@ async function loadLevel() {
 
         victorList.appendChild(victorElement);
 
-    });
+        });
 
-}
+    }
 }
 
 loadLevel();
