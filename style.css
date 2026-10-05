@@ -8,7 +8,11 @@ body {
 header {
     text-align: center;
     padding: 30px;
-    background: #222;
+
+    background-image: url("your-image-url-here");
+    background-size: cover;
+    background-position: center;
+
     color: white;
 }
 
