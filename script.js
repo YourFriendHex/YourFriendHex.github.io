@@ -33,6 +33,12 @@ async function loadLevels() {
         levelElement.innerHTML = `
             <a href="level.html?id=${level.levelID}" class="level-link">
 
+                <img
+                src="${level.thumbnail}"
+                alt="${level.name} thumbnail"
+                class="level-thumbnail"
+                >
+
                 <div class="rank">#${level.rank}</div>
 
                 <div class="level-info">
