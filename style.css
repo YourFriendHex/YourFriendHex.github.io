@@ -223,3 +223,25 @@ header p {
         linear-gradient(white, white) padding-box,
         linear-gradient(to right, currentColor, currentColor) border-box;
 }
+
+.victor {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+.victor-rank {
+    width: 40px;
+    font-weight: bold;
+}
+
+.victor a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.victor a:hover {
+    text-decoration: underline;
+}
