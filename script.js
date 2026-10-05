@@ -12,7 +12,8 @@ async function loadLevels() {
             rank: Number(row[2]),
             points: Number(row[3]),
             creator: row[4],
-            verifier: row[5]
+            verifier: row[5],
+            thumbnail: row[6]
         };
 
     });
