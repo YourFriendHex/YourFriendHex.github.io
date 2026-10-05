@@ -12,6 +12,9 @@ async function loadLevel() {
     // Get completion data from Google Sheets
     const completions = await getCompletions();
 
+    // Get player information from Google Sheets
+    const players = await getPlayers();
+
     // Turn the spreadsheet rows into level objects
     const levels = levelRows.map(row => {
 
@@ -65,25 +68,79 @@ async function loadLevel() {
         // Create an entry for every victor
         victors.forEach((victor, index) => {
 
-            const victorElement = document.createElement("div");
+    // Find this victor in the Players sheet
+    const player = players.find(player =>
+        player.name === victor.player
+    );
 
-            victorElement.classList.add("victor");
+    // Turn the tag string into an array
+    const tags = player && player.tags
+        ? player.tags.split(",").map(tag => tag.trim())
+        : [];
 
-            victorElement.innerHTML = `
-                <span class="victor-rank">
-                    #${index + 1}
-                </span>
+    // Turn the gradient colors into an array
+    const gradientColors = player && player.gradient
+        ? player.gradient.split(",").map(color => color.trim())
+        : [];
 
-                <a href="playerdata.html?name=${encodeURIComponent(victor.player)}">
-                    ${victor.player}
-                </a>
-            `;
+    // Create the tag HTML
+    const tagHTML = tags.map((tag, tagIndex) => {
 
-            victorList.appendChild(victorElement);
+        // Get the three colors belonging to this tag
+        const colors = gradientColors.slice(
+            tagIndex * 3,
+            tagIndex * 3 + 3
+        );
 
-        });
+        // If no custom colors were specified,
+        // generate a color from the tag name
+        if (colors.length === 0) {
+            colors.push(tagColor(tag));
+        }
 
-    }
+        // Create the CSS gradient
+        const gradient =
+            `linear-gradient(to right, ${colors.join(", ")})`;
+
+        // Use the first color for the text
+        const textColor = colors[0];
+
+        return `
+            <span
+                class="player-tag"
+                style="
+                    color: ${textColor};
+                    background:
+                        linear-gradient(white, white) padding-box,
+                        ${gradient} border-box;
+                "
+            >
+                ${tag}
+            </span>
+        `;
+
+    }).join("");
+
+    // Create the victor element
+    const victorElement = document.createElement("div");
+
+    victorElement.classList.add("victor");
+
+    victorElement.innerHTML = `
+        <span class="victor-rank">
+            #${index + 1}
+        </span>
+
+        <a href="playerdata.html?name=${encodeURIComponent(victor.player)}">
+            ${victor.player}
+        </a>
+
+        ${tagHTML}
+    `;
+
+    victorList.appendChild(victorElement);
+
+});
 
     // Find the copy button
     const copyButton = document.getElementById("copy-id-button");
