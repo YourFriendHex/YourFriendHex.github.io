@@ -262,3 +262,15 @@ header p {
 
     flex-shrink: 0;
 }
+
+.level-thumbnail-large {
+    display: block;
+
+    max-width: 100%;
+    width: 600px;
+    height: auto;
+
+    margin: 0 auto 25px;
+
+    border-radius: 8px;
+}
