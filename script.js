@@ -13,7 +13,8 @@ async function loadLevels() {
             points: Number(row[3]),
             creator: row[4],
             verifier: row[5],
-            thumbnail: row[6]
+            thumbnail: row[6],
+            status: row[7]
         };
 
     });
