@@ -178,6 +178,36 @@ if (verifiedLevels.length === 0) {
     // Create an entry for every verified level
     verifiedLevels.forEach(level => {
 
+        // Find this verification in the Completions sheet
+        const verification = playerCompletions.find(completion =>
+        completion.levelID === level.levelID
+        );
+
+        // Decide what to display for the verification
+        let completionButton;
+
+        if (verification && verification.proof) {
+
+        completionButton = `
+        <a
+            href="${verification.proof}"
+            target="_blank"
+            class="completion-button"
+        >
+            Completion
+        </a>
+        `;
+
+        } else {
+
+        completionButton = `
+            <span class="completion-button live-completion">
+                Live Completion
+            </span>
+            `;
+
+        }
+
         const levelElement = document.createElement("div");
 
         levelElement.classList.add("level");
