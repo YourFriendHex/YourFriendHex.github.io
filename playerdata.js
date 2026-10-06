@@ -175,67 +175,67 @@ if (verifiedLevels.length === 0) {
 
 } else {
 
-    // Create an entry for every verified level
-    verifiedLevels.forEach(level => {
+        // Create an entry for every verified level
+        verifiedLevels.forEach(level => {
 
-        // Find this verification in the Completions sheet
-        const verification = playerCompletions.find(completion =>
-        completion.levelID === level.levelID
-        );
+            // Find this verification in the Completions sheet
+            const verification = playerCompletions.find(completion =>
+            completion.levelID === level.levelID
+            );
 
-        // Decide what to display for the verification
-        let completionButton;
+            // Decide what to display for the verification
+            let completionButton;
 
-        if (verification && verification.proof) {
+            if (verification && verification.proof) {
 
-        completionButton = `
-        <a
-            href="${verification.proof}"
-            target="_blank"
-            class="completion-button"
-        >
-            Completion
-        </a>
-        `;
+                 completionButton = `
+                <a
+                    href="${verification.proof}"
+                    target="_blank"
+                    class="completion-button"
+                >    
+                Completion
+                </a>
+                `;
 
-        } else {
+            } else {
 
-        completionButton = `
-            <span class="completion-button live-completion">
-                Live Completion
-            </span>
-            `;
+                  completionButton = `
+                    <span class="completion-button live-completion">
+                        Live Completion
+                    </span>
+                    `;
 
-        }
+            }
 
-        const levelElement = document.createElement("div");
+            const levelElement = document.createElement("div");
 
-        levelElement.classList.add("level");
+            levelElement.classList.add("level");
 
-        levelElement.innerHTML = `
-            <a href="level.html?id=${level.levelID}" class="level-link">
+            levelElement.innerHTML = `
+                <a href="level.html?id=${level.levelID}" class="completed-level-link">
 
-                <img
-                    src="${level.thumbnail}"
-                    alt="${level.name} thumbnail"
-                    class="level-thumbnail"
-                >
+                    <img
+                        src="${level.thumbnail}"
+                        alt="${level.name} thumbnail"
+                        class="level-thumbnail"
+                    >
 
-                <div class="rank">
-                    #${level.rank}
-                </div>
-
-                <div class="level-info">
-                    <div class="level-name">
-                        ${level.name}
+                    <div class="rank">
+                        #${level.rank}
                     </div>
-                </div>
 
-                <div class="points">
-                ${level.points} pts
-                </div>
+                    <div class="level-info">
+                        <div class="level-name">    
+                            ${level.name}
+                        </div>
+                    </div>
 
-            </a>
+                    <div class="points">
+                    ${level.points} pts
+                    </div>
+
+                </a>
 
             ${completionButton}
         `;
@@ -244,7 +244,7 @@ if (verifiedLevels.length === 0) {
 
     });
 
-}
+    }
     
 }
 
