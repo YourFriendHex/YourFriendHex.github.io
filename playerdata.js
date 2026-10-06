@@ -57,11 +57,17 @@ async function loadPlayer() {
         level.verifier !== playerName
     );
 
+    // Sort completed levels by rank
+    completedLevels.sort((a, b) => a.rank - b.rank);
+
     // Find the levels this player verified
     const verifiedLevels = levels.filter(level =>
         level.verifier === playerName &&
         level.status === "Ranked"
     );
+
+    // Sort verified levels by rank
+    verifiedLevels.sort((a, b) => a.rank - b.rank);
 
     // Calculate the player's total points
     let totalPoints = 0;
