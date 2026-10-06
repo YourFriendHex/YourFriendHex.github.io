@@ -113,7 +113,7 @@ async function loadPlayer() {
     // Create the level element
     const levelElement = document.createElement("div");
 
-    levelElement.classList.add("level");
+    levelElement.classList.add("completed-level");
 
     // Create the HTML for the level
     levelElement.innerHTML = `
