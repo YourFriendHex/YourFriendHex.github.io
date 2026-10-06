@@ -91,6 +91,12 @@ async function loadPlayer() {
                     #${level.rank}
                 </div>
 
+                <img
+                src="${level.thumbnail}"
+                alt="${level.name} thumbnail"
+                class="level-thumbnail"
+                >
+
                 <div class="level-info">
                     <div class="level-name">
                         ${level.name}
