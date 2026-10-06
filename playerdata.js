@@ -65,7 +65,13 @@ async function loadPlayer() {
     // Calculate the player's total points
     let totalPoints = 0;
 
+    // Total completed levels and add to total points
     completedLevels.forEach(level => {
+        totalPoints += level.points;
+    });
+
+    // Total verified levels and add to total points
+    verifiedLevels.foreach(level => {
         totalPoints += level.points;
     });
 
