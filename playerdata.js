@@ -117,7 +117,7 @@ async function loadPlayer() {
 
     // Create the HTML for the level
     levelElement.innerHTML = `
-        <a href="level.html?id=${level.levelID}" class="level-link">
+        <a href="level.html?id=${level.levelID}" class="completed-level-link">
 
             <img
                 src="${level.thumbnail}"
