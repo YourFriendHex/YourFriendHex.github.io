@@ -43,14 +43,22 @@ async function loadPlayer() {
         completion.player === playerName
     );
 
-    // Find the actual level information for each completion
-    const completedLevels = playerCompletions.map(completion => {
+   const completedLevels = playerCompletions.map(completion => {
 
-        return levels.find(level =>
-            level.levelID === completion.levelID
-        );
+    return levels.find(level =>
+        level.levelID === completion.levelID
+    );
 
-    }).filter(level => level !== undefined);
+}).filter(level =>
+    level !== undefined &&
+    level.verifier !== playerName
+);
+
+    // Find the levels this player verified
+    const verifiedLevels = levels.filter(level =>
+    level.verifier === playerName
+    );
+    
 
     // Calculate the player's total points
     let totalPoints = 0;
@@ -147,6 +155,52 @@ async function loadPlayer() {
     list.appendChild(levelElement);
 
 });
+
+    // Find the verified levels section
+const verifiedList = document.getElementById("verified-levels");
+
+// Check if the player has verified any levels
+if (verifiedLevels.length === 0) {
+
+    verifiedList.textContent =
+        "This player has not verified any levels yet.";
+
+} else {
+
+    // Create an entry for every verified level
+    verifiedLevels.forEach(level => {
+
+        const levelElement = document.createElement("div");
+
+        levelElement.classList.add("level");
+
+        levelElement.innerHTML = `
+            <a href="level.html?id=${level.levelID}" class="level-link">
+
+                <img
+                    src="${level.thumbnail}"
+                    alt="${level.name} thumbnail"
+                    class="level-thumbnail"
+                >
+
+                <div class="rank">
+                    #${level.rank}
+                </div>
+
+                <div class="level-info">
+                    <div class="level-name">
+                        ${level.name}
+                    </div>
+                </div>
+
+            </a>
+        `;
+
+        verifiedList.appendChild(levelElement);
+
+    });
+
+}
     
 }
 
