@@ -80,6 +80,11 @@ async function loadPlayer() {
     // Create an entry for every completed level
     completedLevels.forEach(level => {
 
+    // Find this completion
+    const completion = playerCompletions.find(completion =>
+        completion.levelID === level.levelID
+    );
+
         const levelElement = document.createElement("div");
 
         levelElement.classList.add("level");
