@@ -112,6 +112,14 @@ async function loadPlayer() {
                     ${level.points} pts
                 </div>
 
+                <a
+                href="${completion.proof}"
+                target="_blank"
+                class="completion-button"
+                >
+                 Completion
+                </a>
+
             </a>
         `;
 
