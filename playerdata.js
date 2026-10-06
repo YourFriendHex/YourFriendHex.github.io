@@ -77,55 +77,77 @@ async function loadPlayer() {
 
     }
 
-    // Create an entry for every completed level
-    completedLevels.forEach(level => {
+   // Create an entry for every completed level
+   completedLevels.forEach(level => {
 
     // Find this completion
     const completion = playerCompletions.find(completion =>
         completion.levelID === level.levelID
     );
 
-        const levelElement = document.createElement("div");
+    // Decide what to display for the completion
+    let completionButton;
 
-        levelElement.classList.add("level");
+    if (completion.proof) {
 
-        levelElement.innerHTML = `
-            <a href="level.html?id=${level.levelID}" class="level-link">
-
-                <div class="rank">
-                    #${level.rank}
-                </div>
-
-                <img
-                src="${level.thumbnail}"
-                alt="${level.name} thumbnail"
-                class="level-thumbnail"
-                >
-
-                <div class="level-info">
-                    <div class="level-name">
-                        ${level.name}
-                    </div>
-                </div>
-
-                <div class="points">
-                    ${level.points} pts
-                </div>
-
-                <a
+        completionButton = `
+            <a
                 href="${completion.proof}"
                 target="_blank"
                 class="completion-button"
-                >
-                 Completion
-                </a>
-
+            >
+                Completion
             </a>
         `;
 
-        list.appendChild(levelElement);
+    } else {
 
-    });
+        completionButton = `
+            <span class="completion-button live-completion">
+                Live Completion
+            </span>
+        `;
+
+    }
+
+    // Create the level element
+    const levelElement = document.createElement("div");
+
+    levelElement.classList.add("level");
+
+    // Create the HTML for the level
+    levelElement.innerHTML = `
+        <a href="level.html?id=${level.levelID}" class="level-link">
+
+            <img
+                src="${level.thumbnail}"
+                alt="${level.name} thumbnail"
+                class="level-thumbnail"
+            >
+
+            <div class="rank">
+                #${level.rank}
+            </div>
+
+            <div class="level-info">
+                <div class="level-name">
+                    ${level.name}
+                </div>
+            </div>
+
+            <div class="points">
+                ${level.points} pts
+            </div>
+
+        </a>
+
+        ${completionButton}
+    `;
+
+    list.appendChild(levelElement);
+
+});
+    
 }
 
 loadPlayer();
