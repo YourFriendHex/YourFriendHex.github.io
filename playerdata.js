@@ -200,6 +200,8 @@ if (verifiedLevels.length === 0) {
                 </div>
 
             </a>
+
+            ${completionButton}
         `;
 
         verifiedList.appendChild(levelElement);
