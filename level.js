@@ -25,7 +25,8 @@ async function loadLevel() {
             points: Number(row[3]),
             creator: row[4],
             verifier: row[5],
-            thumbnail: row[6]
+            thumbnail: row[6],
+            notes: row[8]
         };
 
     });
