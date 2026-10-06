@@ -45,9 +45,8 @@ async function loadLevel() {
     document.getElementById("level-points").textContent = level.points;
     document.getElementById("level-verifier").textContent = level.verifier;
     document.getElementById("level-id").textContent = level.levelID;
-
-    // Display the thumbnail
     document.getElementById("level-thumbnail").src = level.thumbnail;
+    document.getElementById("level-notes").textContent = level.notes || "No verifier notes have been added.";
 
     // Find everyone who completed this level,
     // except for the verifier
