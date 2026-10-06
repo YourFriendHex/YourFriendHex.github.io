@@ -91,6 +91,7 @@ main {
     text-decoration: none;
 
     border-radius: 6px;
+    z-index: 1100;
 }
 
 /* Main level information card */
