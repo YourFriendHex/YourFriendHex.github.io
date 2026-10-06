@@ -19,7 +19,8 @@ async function loadPlayer() {
             points: Number(row[3]),
             creator: row[4],
             verifier: row[5],
-            thumbnail: row[6]
+            thumbnail: row[6],
+            status: row[7]
         };
 
     });
@@ -54,9 +55,10 @@ async function loadPlayer() {
     level.verifier !== playerName
 );
 
-    // Find the levels this player verified
+    // Find ranked levels that this player verified
     const verifiedLevels = levels.filter(level =>
-    level.verifier === playerName
+    level.verifier === playerName &&
+    level.status === "Ranked"
     );
     
 
@@ -191,6 +193,10 @@ if (verifiedLevels.length === 0) {
                     <div class="level-name">
                         ${level.name}
                     </div>
+                </div>
+
+                <div class="points">
+                ${level.points} pts
                 </div>
 
             </a>
