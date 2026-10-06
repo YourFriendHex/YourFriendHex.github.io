@@ -210,7 +210,7 @@ if (verifiedLevels.length === 0) {
 
             const levelElement = document.createElement("div");
 
-            levelElement.classList.add("level");
+            levelElement.classList.add("completed-level");
 
             levelElement.innerHTML = `
                 <a href="level.html?id=${level.levelID}" class="completed-level-link">
