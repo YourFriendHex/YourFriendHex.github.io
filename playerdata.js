@@ -39,44 +39,46 @@ async function loadPlayer() {
     // Display the player's tags
     tagContainer.innerHTML = tagHTML;
 
-    // Find this player's completed levels
+    // Find this player's completions
     const playerCompletions = completions.filter(completion =>
         completion.player === playerName
     );
 
-   const completedLevels = playerCompletions.map(completion => {
+    // Find the actual level information for each completion
+    // Exclude levels that this player verified
+    const completedLevels = playerCompletions.map(completion => {
 
-    return levels.find(level =>
-        level.levelID === completion.levelID
+        return levels.find(level =>
+            level.levelID === completion.levelID
+        );
+
+    }).filter(level =>
+        level !== undefined &&
+        level.verifier !== playerName
     );
 
-}).filter(level =>
-    level !== undefined &&
-    level.verifier !== playerName
-);
-
-    // Find ranked levels that this player verified
+    // Find the levels this player verified
     const verifiedLevels = levels.filter(level =>
-    level.verifier === playerName &&
-    level.status === "Ranked"
+        level.verifier === playerName &&
+        level.status === "Ranked"
     );
-    
 
     // Calculate the player's total points
     let totalPoints = 0;
 
-    // Total completed levels and add to total points
+    // Add points from completed levels
     completedLevels.forEach(level => {
         totalPoints += level.points;
     });
 
-    // Total verified levels and add to total points
-    verifiedLevels.foreach(level => {
+    // Add points from verified levels
+    verifiedLevels.forEach(level => {
         totalPoints += level.points;
     });
 
     // Display the player's name
-    document.getElementById("player-name").textContent = player.name;
+    document.getElementById("player-name").textContent =
+        player.name;
 
     // Display their total points
     document.getElementById("player-points").textContent =
@@ -93,94 +95,99 @@ async function loadPlayer() {
 
     }
 
-   // Create an entry for every completed level
-   completedLevels.forEach(level => {
+    // Create an entry for every completed level
+    completedLevels.forEach(level => {
 
-    // Find this completion
-    const completion = playerCompletions.find(completion =>
-        completion.levelID === level.levelID
-    );
+        // Find this completion
+        const completion = playerCompletions.find(completion =>
+            completion.levelID === level.levelID
+        );
 
-    // Decide what to display for the completion
-    let completionButton;
+        // Decide what to display for the completion
+        let completionButton;
 
-    if (completion.proof) {
+        if (completion && completion.proof) {
 
-        completionButton = `
+            completionButton = `
+                <a
+                    href="${completion.proof}"
+                    target="_blank"
+                    class="completion-button"
+                >
+                    Completion
+                </a>
+            `;
+
+        } else {
+
+            completionButton = `
+                <span class="completion-button live-completion">
+                    Live Completion
+                </span>
+            `;
+
+        }
+
+        // Create the level element
+        const levelElement = document.createElement("div");
+
+        levelElement.classList.add("completed-level");
+
+        // Create the HTML for the level
+        levelElement.innerHTML = `
             <a
-                href="${completion.proof}"
-                target="_blank"
-                class="completion-button"
-            >
-                Completion
-            </a>
-        `;
-
-    } else {
-
-        completionButton = `
-            <span class="completion-button live-completion">
-                Live Completion
-            </span>
-        `;
-
-    }
-
-    // Create the level element
-    const levelElement = document.createElement("div");
-
-    levelElement.classList.add("completed-level");
-
-    // Create the HTML for the level
-    levelElement.innerHTML = `
-        <a href="level.html?id=${level.levelID}" class="completed-level-link">
-
-            <img
-                src="${level.thumbnail}"
-                alt="${level.name} thumbnail"
-                class="level-thumbnail"
+                href="level.html?id=${level.levelID}"
+                class="completed-level-link"
             >
 
-            <div class="rank">
-                #${level.rank}
-            </div>
+                <img
+                    src="${level.thumbnail}"
+                    alt="${level.name} thumbnail"
+                    class="level-thumbnail"
+                >
 
-            <div class="level-info">
-                <div class="level-name">
-                    ${level.name}
+                <div class="rank">
+                    #${level.rank}
                 </div>
-            </div>
 
-            <div class="points">
-                ${level.points} pts
-            </div>
+                <div class="level-info">
 
-        </a>
+                    <div class="level-name">
+                        ${level.name}
+                    </div>
 
-        ${completionButton}
-    `;
+                </div>
 
-    list.appendChild(levelElement);
+                <div class="points">
+                    ${level.points} pts
+                </div>
 
-});
+            </a>
+
+            ${completionButton}
+        `;
+
+        list.appendChild(levelElement);
+
+    });
 
     // Find the verified levels section
-const verifiedList = document.getElementById("verified-levels");
+    const verifiedList = document.getElementById("verified-levels");
 
-// Check if the player has verified any levels
-if (verifiedLevels.length === 0) {
+    // Check if the player has verified any levels
+    if (verifiedLevels.length === 0) {
 
-    verifiedList.textContent =
-        "This player has not verified any levels yet.";
+        verifiedList.textContent =
+            "This player has not verified any levels yet.";
 
-} else {
+    } else {
 
         // Create an entry for every verified level
         verifiedLevels.forEach(level => {
 
             // Find this verification in the Completions sheet
             const verification = playerCompletions.find(completion =>
-            completion.levelID === level.levelID
+                completion.levelID === level.levelID
             );
 
             // Decide what to display for the verification
@@ -188,32 +195,38 @@ if (verifiedLevels.length === 0) {
 
             if (verification && verification.proof) {
 
-                 completionButton = `
-                <a
-                    href="${verification.proof}"
-                    target="_blank"
-                    class="completion-button"
-                >    
-                Completion
-                </a>
+                completionButton = `
+                    <a
+                        href="${verification.proof}"
+                        target="_blank"
+                        class="completion-button"
+                    >
+                        Completion
+                    </a>
                 `;
 
             } else {
 
-                  completionButton = `
+                completionButton = `
                     <span class="completion-button live-completion">
                         Live Completion
                     </span>
-                    `;
+                `;
 
             }
 
+            // Create the level element
             const levelElement = document.createElement("div");
 
+            // Use the same styling as completed levels
             levelElement.classList.add("completed-level");
 
+            // Create the HTML for the level
             levelElement.innerHTML = `
-                <a href="level.html?id=${level.levelID}" class="completed-level-link">
+                <a
+                    href="level.html?id=${level.levelID}"
+                    class="completed-level-link"
+                >
 
                     <img
                         src="${level.thumbnail}"
@@ -226,26 +239,28 @@ if (verifiedLevels.length === 0) {
                     </div>
 
                     <div class="level-info">
-                        <div class="level-name">    
+
+                        <div class="level-name">
                             ${level.name}
                         </div>
+
                     </div>
 
                     <div class="points">
-                    ${level.points} pts
+                        ${level.points} pts
                     </div>
 
                 </a>
 
-            ${completionButton}
-        `;
+                ${completionButton}
+            `;
 
-        verifiedList.appendChild(levelElement);
+            verifiedList.appendChild(levelElement);
 
-    });
+        });
 
     }
-    
+
 }
 
 loadPlayer();
