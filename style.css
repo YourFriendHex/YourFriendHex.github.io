@@ -45,6 +45,8 @@ main {
 
 .level-info {
     flex: 1;
+    text-align: left;
+
     
 }
 
