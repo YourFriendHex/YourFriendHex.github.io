@@ -445,8 +445,8 @@ header p {
     }
 
     .level-thumbnail {
-        width: 120px;
-        height: 68px;
+        width: 100px;
+        height: 59px;
 
         object-fit: cover;
 
