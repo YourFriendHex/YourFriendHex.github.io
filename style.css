@@ -330,6 +330,7 @@ header p {
     cursor: default;
 }
 
+/* Mobile */
 @media (max-width: 600px) {
 
     /* Make the header smaller on phones */
@@ -441,6 +442,19 @@ header p {
     .level-page {
         margin: 80px 10px 20px;
         padding: 20px 15px;
+    }
+
+    .level-thumbnail {
+        width: 120px;
+        height: 68px;
+
+        object-fit: cover;
+
+        border-radius: 6px;
+
+        margin-right: 15px;
+
+        flex-shrink: 0;
     }
 
     .level-thumbnail-large {
