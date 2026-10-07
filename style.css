@@ -244,7 +244,7 @@ header p {
     border: 2px solid transparent;
     border-radius: 8px;
 
-    font-size: calc(1em - 8x);
+    font-size: calc(1em - 8px);
     font-weight: bold;
 
     white-space: nowrap;
@@ -456,7 +456,7 @@ header p {
     .player-tag {
         margin-top: 3px;
 
-        font-size: calc(1em - 8x);
+        font-size: calc(1em - 8px);
     }
 
     /* Individual level page */
