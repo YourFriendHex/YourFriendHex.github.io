@@ -436,6 +436,8 @@ header p {
     /* Tags */
     .player-tag {
         margin-top: 3px;
+
+        font-size: calc(1em - 8x);
     }
 
     /* Individual level page */
