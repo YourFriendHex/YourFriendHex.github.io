@@ -55,7 +55,7 @@ rankedLevels.forEach(level => {
     levelElement.classList.add("level");
 
     levelElement.innerHTML = `
-        <a href="level.html?id=${level.levelID}" class="level-link">
+        <div class="level-link">
 
             <img
                 src="${level.thumbnail}"
@@ -66,8 +66,8 @@ rankedLevels.forEach(level => {
             <div class="rank">#${level.rank}</div>
 
             <div class="level-info">
-                <div class="level-name">${level.name}</div>
-                <div class="creator"> <a href="playerdata.html?name=${encodeURIComponent(level.creator)}" class="creator-link">by ${level.creator}
+                <dive class="level-name"><a = href="level.html?id=${level.levelID}">${level.name}</a></div>
+                <div class="creator">by <a href="playerdata.html?name=${encodeURIComponent(level.creator)}" class="creator-link">${level.creator}
                     </a> ${createTagHTML(players.find(player => player.name === level.creator))}
 </div>
             </div>
