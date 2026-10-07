@@ -45,6 +45,7 @@ main {
 
 .level-info {
     flex: 1;
+    min-width: 0;
 }
 
 .level-name {
@@ -55,15 +56,28 @@ main {
 .creator {
     color: #666;
     margin-top: 4px;
+
+    white-space: nowrap;
+    
 }
 
 .points {
     font-weight: bold;
+
+    margin-left: 20px;
     margin-right: 30px;
+
+    flex-shrink: 0;
 }
 
 .verifier {
     color: #666;
+
+    flex-shrink: 0;
+
+    white-space: nowrap;
+
+    min-width: 180px;
 }
 
 /*text-decoration should set to 0 removes underline in link*/
@@ -72,6 +86,7 @@ main {
     align-items: center;
 
     width: 100%;
+    min-width: 0;
 
     color: inherit;
     text-decoration: none;
@@ -191,6 +206,8 @@ header p {
     background: #222;
     color: white;
 
+    
+
     text-decoration: none;
     
     cursor: pointer;
@@ -229,6 +246,8 @@ header p {
 
     font-size: calc(1em - 8x);
     font-weight: bold;
+
+    white-space: nowrap;
 
     background:
         linear-gradient(white, white) padding-box,
@@ -372,7 +391,7 @@ header p {
     }
 
     .creator {
-        overflow-wrap: anywhere;
+        white-space: nowrap;
     }
 
     .rank {
@@ -489,8 +508,5 @@ header p {
     color: inherit;
     text-decoration: none;
     font-weight: bold;
-}
-
-.verifier-link:hover {
     text-decoration: underline;
 }
