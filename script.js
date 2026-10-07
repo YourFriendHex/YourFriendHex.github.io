@@ -66,7 +66,7 @@ rankedLevels.forEach(level => {
             <div class="rank">#${level.rank}</div>
 
             <div class="level-info">
-                <dive class="level-name"><a = href="level.html?id=${level.levelID}">${level.name}</a></div>
+                <div class="level-name"><a = href="level.html?id=${level.levelID}">${level.name}</a></div>
                 <div class="creator">by <a href="playerdata.html?name=${encodeURIComponent(level.creator)}" class="creator-link">${level.creator}
                     </a> ${createTagHTML(players.find(player => player.name === level.creator))}
 </div>
@@ -88,7 +88,7 @@ rankedLevels.forEach(level => {
 
             </div>
 
-        </a>
+        </div>
     `;
 
     list.appendChild(levelElement);
@@ -120,7 +120,7 @@ if (upcomingLevels.length === 0) {
         levelElement.classList.add("level");
 
         levelElement.innerHTML = `
-            <a href="level.html?id=${level.levelID}" class="level-link">
+            <div class="level-link">
 
                 <img
                     src="${level.thumbnail}"
@@ -129,11 +129,24 @@ if (upcomingLevels.length === 0) {
                 >
 
                 <div class="level-info">
-                    <div class="level-name">${level.name}</div>
-                    <div class="creator">by ${level.creator} • To be verified by ${level.verifier}</div>
+                    <div class="level-name"><a href="level.html?id=${level.levelID}">${level.name}</a></div>
+                    <div class="creator">by <a href="playerdata.html?name=${encodeURIComponent(level.creator)}" class="creator-link">${level.creator}</a> • To be verified by ${level.verifier}</div>
                 </div>
 
-            </a>
+                <div class="verifier">
+
+                To be verified by
+
+                <a href="playerdata.html?name=${encodeURIComponent(level.verifier)}" class="verifier-link">
+                    ${level.verifier}
+                </a>    
+
+                ${createTagHTML(players.find(player => player.name === level.verifier))}
+
+            </div>
+
+
+            </div>
         `;
 
         list.appendChild(levelElement);
