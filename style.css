@@ -508,5 +508,11 @@ header p {
     color: inherit;
     text-decoration: none;
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration: none;
 }
+
+.verifier-link:hover {
+    text-decoration: underline;
+
+}   
+    
