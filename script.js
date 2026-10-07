@@ -77,7 +77,15 @@ rankedLevels.forEach(level => {
             </div>
 
             <div class="verifier">
-                Verified by ${level.verifier}
+
+                Verified by
+
+                <a href="playerdata.html?name=${encodeURIComponent(level.verifier)}" class="verifier-link">
+                    ${level.verifier}
+                </a>    
+
+                ${createTagHTML(players.find(player => player.name === level.verifier))}
+
             </div>
 
         </a>
