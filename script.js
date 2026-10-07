@@ -3,6 +3,10 @@ async function loadLevels() {
     // Get the raw level data from Google Sheets
     const levelRows = await getSheet("Levels");
 
+    // Get player data from Google Sheets
+    const players = await getPlayers();
+    
+
     // Turn the spreadsheet rows into level objects
     const levels = levelRows.map(row => {
 
