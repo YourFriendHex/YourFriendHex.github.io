@@ -66,7 +66,7 @@ rankedLevels.forEach(level => {
             <div class="rank">#${level.rank}</div>
 
             <div class="level-info">
-                <div class="level-name"><a = href="level.html?id=${level.levelID}" class="level-name">${level.name}</a></div>
+                <div class="level-name"><a href="level.html?id=${level.levelID}" class="level-name">${level.name}</a></div>
                 <div class="creator">by <a href="playerdata.html?name=${encodeURIComponent(level.creator)}" class="creator-link">${level.creator}
                     </a> ${createTagHTML(players.find(player => player.name === level.creator))}
 </div>
