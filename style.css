@@ -468,3 +468,13 @@ header p {
 .creator-link:hover {
     text-decoration: underline;
 }
+
+.verifier-link {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.verifier-link:hover {
+    text-decoration: underline;
+}
