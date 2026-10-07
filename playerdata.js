@@ -69,6 +69,11 @@ async function loadPlayer() {
     // Sort verified levels by rank
     verifiedLevels.sort((a, b) => a.rank - b.rank);
 
+    // Find the levels this player created
+    const createdLevels = levels.filter(level =>
+    level.creator === playerName
+    );
+
     // Calculate the player's total points
     let totalPoints = 0;
 
@@ -266,6 +271,64 @@ async function loadPlayer() {
         });
 
     }
+    
+    // Find the created levels section
+    const createdList = document.getElementById("created-levels");
+
+    // Check if the player has not created any levels
+    if (createdLevels.length === 0) {
+
+        createdList.textContent =
+            "This player has not created any levels yet.";
+
+    } else {
+
+        // Create an entry for every level they created
+        createdLevels.forEach(level => {
+
+            // Create the level element    
+            const levelElement = document.createElement("div");
+
+            levelElement.classList.add("level");
+
+            // Create the HTML for the level
+            levelElement.innerHTML = `
+                    <a
+                        href="level.html?id=${level.levelID}"
+                        class="level-link"
+                    >
+
+                    <img
+                        src="${level.thumbnail}"
+                        alt="${level.name} thumbnail"
+                        class="level-thumbnail"
+                    >
+
+                    <div class="rank">
+                        #${level.rank}
+                    </div>
+
+                    <div class="level-info">
+
+                        <div class="level-name">
+                            ${level.name}
+                        </div>
+
+                    </div>
+
+                    <div class="points">
+                        ${level.status}
+                    </div>
+
+                </a>
+            `;
+
+            createdList.appendChild(levelElement);
+
+        });
+
+    }
+    
 
 }
 
