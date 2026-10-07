@@ -356,6 +356,7 @@ header p {
     text-decoration: none;
     font-weight: bold;
     white-space: nowrap;
+    display: inline-block;
 }
 
 .creator-link:hover {
