@@ -51,7 +51,9 @@ async function loadLevel() {
     
     // Find all completion entries for this level
     const levelCompletions = completions.filter(completion =>
-        completion.levelID === levelID
+        completion.levelID === levelID &&
+        completion.player !== level.verifier
+
     );
 
     // Display an average rating and update its progress bar
@@ -86,7 +88,9 @@ async function loadLevel() {
         // If nobody has rated this category yet
         if (ratings.length === 0) {
 
-            valueElement.textContent = "No ratings yet";
+            valueElement.textContent =
+            `${ratingName.charAt(0).toUpperCase() + ratingName.slice(1)}: No ratings yet`;
+            
             barElement.setAttribute("aria-valuenow", "0");
             fillElement.style.width = "0%";
 
@@ -104,7 +108,8 @@ async function loadLevel() {
         const percentage = average * 10;
 
         // Display the average to one decimal place
-        valueElement.textContent = `${average.toFixed(1)} / 10`;
+        valueElement.textContent =
+        `${ratingName.charAt(0).toUpperCase() + ratingName.slice(1)}: ${average.toFixed(1)} / 10`;
 
         // Update the progress bar
         fillElement.style.width = `${percentage}%`;
