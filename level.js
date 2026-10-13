@@ -148,7 +148,7 @@ barElement.setAttribute("aria-valuenow", average.toFixed(1));
                 `rgb(${red}, 255, ${blueGreen})`;
             }    
         }
-    }
+    
 
 
     // Display both community ratings
