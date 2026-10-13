@@ -104,20 +104,28 @@ async function loadLevel() {
         const average = total / ratings.length;
 
         // Convert the average out of 10 into a percentage
-        const percentage = average * 10;
+        
+const percentage = average * 10;
 
-        // Display the average to one decimal place
-        valueElement.textContent =
-        `${ratingName.charAt(0).toUpperCase() + ratingName.slice(1)}: ${average.toFixed(1)} / 10`;
+valueElement.textContent =
+    `${ratingName.charAt(0).toUpperCase() + ratingName.slice(1)}: ${average.toFixed(1)} / 10`;
 
-        // Update the progress bar
-        fillElement.style.width = `${percentage}%`;
+fillElement.style.width = `${percentage}%`;
+barElement.setAttribute("aria-valuenow", average.toFixed(1));
 
-        // Update the accessibility value
-        barElement.setAttribute(
-            "aria-valuenow",
-            average.toFixed(1)
-        );
+// Change the bar's color based on the average rating
+if (ratingName === "difficulty") {
+    // Difficulty: green at 0, red at 10
+    const red = Math.round(76 + (255 - 76) * average / 10);
+    const green = Math.round(175 * (1 - average / 10));
+    fillElement.style.backgroundColor = `rgb(${red}, ${green}, 76)`;
+} else if (ratingName === "enjoyment") {
+    // Enjoyment: red at 0, green at 10
+    const red = Math.round(255 * (1 - average / 10));
+    const green = Math.round(76 + (175 - 76) * average / 10);
+    fillElement.style.backgroundColor = `rgb(${red}, ${green}, 76)`;
+}
+
     }
 
     // Display both community ratings
