@@ -115,43 +115,41 @@ barElement.setAttribute("aria-valuenow", average.toFixed(1));
 
 // Change the bar's color based on the average rating
 
-if (ratingName === "difficulty") {
-    // Difficulty: green at 0, yellow at 5, red at 10
-    if (average <= 5) {
-        const amount = average / 5;
-        const red = Math.round(76 + (255 - 76) * amount);
-        const green = Math.round(175 + (255 - 175) * amount);
+    if (ratingName === "difficulty") {
+        // Difficulty: green at 0, yellow at 5, red at 10
+        if (average <= 5) {
+            const amount = average / 5;
+            const red = Math.round(76 + (255 - 76) * amount);
+            const green = Math.round(175 + (255 - 175) * amount);
 
-        fillElement.style.backgroundColor =
-            `rgb(${red}, ${green}, 76)`;
-    } else {
-        const amount = (average - 5) / 5;
-        const green = Math.round(255 * (1 - amount));
+            fillElement.style.backgroundColor =
+                `rgb(${red}, ${green}, 76)`;
+        } else {
+            const amount = (average - 5) / 5;
+            const green = Math.round(255 * (1 - amount));
 
-        fillElement.style.backgroundColor =
-            `rgb(255, ${green}, 0)`;
+            fillElement.style.backgroundColor =
+                `rgb(255, ${green}, 0)`;
+        }
+    } else if (ratingName === "enjoyment") {
+        // Enjoyment: red at 0, yellow at 5, green at 10
+        if (average <= 5) {
+            const amount = average / 5;
+            const green = Math.round(255 * amount);
+
+            fillElement.style.backgroundColor =
+                `rgb(255, ${green}, 0)`;
+        } else {
+            const amount = (average - 5) / 5;
+            const red = Math.round(255 * (1 - amount));
+            const blueGreen = Math.round(175 * amount);
+
+            fillElement.style.backgroundColor =
+                `rgb(${red}, 255, ${blueGreen})`;
+            }    
+        }
     }
-} else if (ratingName === "enjoyment") {
-    // Enjoyment: red at 0, yellow at 5, green at 10
-    if (average <= 5) {
-        const amount = average / 5;
-        const green = Math.round(255 * amount);
 
-        fillElement.style.backgroundColor =
-            `rgb(255, ${green}, 0)`;
-    } else {
-        const amount = (average - 5) / 5;
-        const red = Math.round(255 * (1 - amount));
-        const blueGreen = Math.round(175 * amount);
-
-        fillElement.style.backgroundColor =
-            `rgb(${red}, 255, ${blueGreen})`;
-    }
-}
-
-}
-
-    }
 
     // Display both community ratings
     displayRating("difficulty", "difficulty");
