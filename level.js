@@ -49,15 +49,16 @@ async function loadLevel() {
     document.getElementById("level-notes").textContent = level.notes || "No verifier notes have been added.";
 
     
-    // Find all completion entries for this level
+   
+    // Find all completion entries for this level,
+    // excluding the verifier
     const levelCompletions = completions.filter(completion =>
-        completion.levelID === levelID
-
+        completion.levelID === levelID &&
+        completion.player !== level.verifier
     );
 
     // Display an average rating and update its progress bar
     function displayRating(ratingName, propertyName) {
-
         // Get ratings, ignoring blank cells and invalid values
         const ratings = levelCompletions
             .map(completion => completion[propertyName])
@@ -72,88 +73,73 @@ async function loadLevel() {
             .map(Number);
 
         // Find the HTML elements for this rating
-        const valueElement = document.getElementById(
-            `${ratingName}-value`
-        );
-
-        const barElement = document.getElementById(
-            `${ratingName}-bar`
-        );
-
-        const fillElement = document.getElementById(
-            `${ratingName}-fill`
-        );
+        const valueElement = document.getElementById(`${ratingName}-value`);
+        const barElement = document.getElementById(`${ratingName}-bar`);
+        const fillElement = document.getElementById(`${ratingName}-fill`);
 
         // If nobody has rated this category yet
         if (ratings.length === 0) {
-
             valueElement.textContent =
-            `${ratingName.charAt(0).toUpperCase() + ratingName.slice(1)}: No ratings yet`;
-            
+                `${ratingName.charAt(0).toUpperCase() + ratingName.slice(1)}: No ratings yet`;
+
             barElement.setAttribute("aria-valuenow", "0");
             fillElement.style.width = "0%";
-
             return;
         }
 
         // Calculate the average
-        const total = ratings.reduce((sum, rating) =>
-            sum + rating, 0
-        );
-
+        const total = ratings.reduce((sum, rating) => sum + rating, 0);
         const average = total / ratings.length;
 
         // Convert the average out of 10 into a percentage
-        
-const percentage = average * 10;
+        const percentage = average * 10;
 
-valueElement.textContent =
-    `${ratingName.charAt(0).toUpperCase() + ratingName.slice(1)}: ${average.toFixed(1)} / 10`;
+        valueElement.textContent =
+            `${ratingName.charAt(0).toUpperCase() + ratingName.slice(1)}: ${average.toFixed(1)} / 10`;
 
-fillElement.style.width = `${percentage}%`;
-barElement.setAttribute("aria-valuenow", average.toFixed(1));
+        fillElement.style.width = `${percentage}%`;
+        barElement.setAttribute("aria-valuenow", average.toFixed(1));
 
-// Change the bar's color based on the average rating
+        // Change the bar's color based on the average rating
+        if (ratingName === "difficulty") {
+            // Difficulty: green at 0, yellow at 5, red at 10
+            if (average <= 5) {
+                const amount = average / 5;
+                const red = Math.round(76 + (255 - 76) * amount);
+                const green = Math.round(175 + (255 - 175) * amount);
 
-    if (ratingName === "difficulty") {
-        // Difficulty: green at 0, yellow at 5, red at 10
-        if (average <= 5) {
-            const amount = average / 5;
-            const red = Math.round(76 + (255 - 76) * amount);
-            const green = Math.round(175 + (255 - 175) * amount);
+                fillElement.style.backgroundColor =
+                    `rgb(${red}, ${green}, 76)`;
+            } else {
+                const amount = (average - 5) / 5;
+                const green = Math.round(255 * (1 - amount));
 
-            fillElement.style.backgroundColor =
-                `rgb(${red}, ${green}, 76)`;
-        } else {
-            const amount = (average - 5) / 5;
-            const green = Math.round(255 * (1 - amount));
+                fillElement.style.backgroundColor =
+                    `rgb(255, ${green}, 0)`;
+            }
+        } else if (ratingName === "enjoyment") {
+            // Enjoyment: red at 0, yellow at 5, green at 10
+            if (average <= 5) {
+                const amount = average / 5;
+                const green = Math.round(255 * amount);
 
-            fillElement.style.backgroundColor =
-                `rgb(255, ${green}, 0)`;
+                fillElement.style.backgroundColor =
+                    `rgb(255, ${green}, 0)`;
+            } else {
+                const amount = (average - 5) / 5;
+                const red = Math.round(255 * (1 - amount));
+                const blueGreen = Math.round(175 * amount);
+
+                fillElement.style.backgroundColor =
+                    `rgb(${red}, 255, ${blueGreen})`;
+            }
         }
-    } else if (ratingName === "enjoyment") {
-        // Enjoyment: red at 0, yellow at 5, green at 10
-        if (average <= 5) {
-            const amount = average / 5;
-            const green = Math.round(255 * amount);
-
-            fillElement.style.backgroundColor =
-                `rgb(255, ${green}, 0)`;
-        } else {
-            const amount = (average - 5) / 5;
-            const red = Math.round(255 * (1 - amount));
-            const blueGreen = Math.round(175 * amount);
-
-            fillElement.style.backgroundColor =
-                `rgb(${red}, 255, ${blueGreen})`;
-            }    
-        }
-    
-
+    }
 
     // Display both community ratings
     displayRating("difficulty", "difficulty");
     displayRating("enjoyment", "enjoyment");
+
 
 
     // Find everyone who completed this level,
