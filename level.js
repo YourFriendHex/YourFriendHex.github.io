@@ -51,8 +51,7 @@ async function loadLevel() {
     
     // Find all completion entries for this level
     const levelCompletions = completions.filter(completion =>
-        completion.levelID === levelID &&
-        completion.player !== level.verifier
+        completion.levelID === levelID
 
     );
 
