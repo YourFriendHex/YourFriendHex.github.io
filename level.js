@@ -48,6 +48,79 @@ async function loadLevel() {
     document.getElementById("level-thumbnail").src = level.thumbnail;
     document.getElementById("level-notes").textContent = level.notes || "No verifier notes have been added.";
 
+    
+    // Find all completion entries for this level
+    const levelCompletions = completions.filter(completion =>
+        completion.levelID === levelID
+    );
+
+    // Display an average rating and update its progress bar
+    function displayRating(ratingName, propertyName) {
+
+        // Get ratings, ignoring blank cells and invalid values
+        const ratings = levelCompletions
+            .map(completion => completion[propertyName])
+            .filter(value =>
+                value !== undefined &&
+                value !== null &&
+                String(value).trim() !== "" &&
+                Number.isFinite(Number(value)) &&
+                Number(value) >= 0 &&
+                Number(value) <= 10
+            )
+            .map(Number);
+
+        // Find the HTML elements for this rating
+        const valueElement = document.getElementById(
+            `${ratingName}-value`
+        );
+
+        const barElement = document.getElementById(
+            `${ratingName}-bar`
+        );
+
+        const fillElement = document.getElementById(
+            `${ratingName}-fill`
+        );
+
+        // If nobody has rated this category yet
+        if (ratings.length === 0) {
+
+            valueElement.textContent = "No ratings yet";
+            barElement.setAttribute("aria-valuenow", "0");
+            fillElement.style.width = "0%";
+
+            return;
+        }
+
+        // Calculate the average
+        const total = ratings.reduce((sum, rating) =>
+            sum + rating, 0
+        );
+
+        const average = total / ratings.length;
+
+        // Convert the average out of 10 into a percentage
+        const percentage = average * 10;
+
+        // Display the average to one decimal place
+        valueElement.textContent = `${average.toFixed(1)} / 10`;
+
+        // Update the progress bar
+        fillElement.style.width = `${percentage}%`;
+
+        // Update the accessibility value
+        barElement.setAttribute(
+            "aria-valuenow",
+            average.toFixed(1)
+        );
+    }
+
+    // Display both community ratings
+    displayRating("difficulty", "difficulty");
+    displayRating("enjoyment", "enjoyment");
+
+
     // Find everyone who completed this level,
     // except for the verifier
     const victors = completions.filter(completion =>
