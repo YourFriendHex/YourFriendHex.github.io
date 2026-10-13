@@ -93,7 +93,9 @@ async function getCompletions() {
         return {
             player: row[0],
             levelID: row[1],
-            proof: row[2]
+            proof: row[2],
+            difficulty: row[3],
+            enjoyment: row[4]
             
         };
 
