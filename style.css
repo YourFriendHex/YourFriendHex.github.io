@@ -443,12 +443,29 @@ header p {
 }
 
 /* Hardest level header card */
+
+/* Hardest level and list completion card */
 .hardest-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
     background: white;
     border-radius: 10px;
     padding: 22px 25px;
-    margin: 80px 0 20px;
+    margin: 20px 0;
     border-left: 5px solid #222;
+    box-sizing: border-box;
+}
+
+.hardest-info,
+.completion-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.completion-info {
+    text-align: right;
 }
 
 .hardest-card h2 {
@@ -457,12 +474,18 @@ header p {
     color: #666;
 }
 
-#player-hardest {
+#player-hardest,
+#player-completion {
     font-size: 24px;
     font-weight: bold;
     margin: 0;
     overflow-wrap: anywhere;
 }
+
+#player-completion {
+    color: #2e8b57;
+}
+
 
 /* Two-column grid */
 .player-stats-grid {
