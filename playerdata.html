@@ -1,51 +1,52 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Player</title>
-
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
-
     <header>
         <h1 id="player-name">Loading...</h1>
         <div id="player-tags"></div>
         <p id="player-points">Loading...</p>
     </header>
 
-    <main>
+    <main class="player-profile-main">
 
         <a href="players.html" class="back-button">← Back to Players</a>
 
-        <div class="level-page">
+        <!-- Player's hardest level -->
+        <section class="hardest-card">
+            <h2>Hardest Completed</h2>
+            <p id="player-hardest">Loading...</p>
+        </section>
 
-            <h2>Completed Levels</h2>
+        <!-- Two-column grid of player statistics -->
+        <div class="player-stats-grid">
 
-            <div id="completed-levels"></div>
+            <section class="player-stat-card">
+                <h2>Completed Levels</h2>
+                <div id="completed-levels" class="player-level-list"></div>
+            </section>
 
-            <h2>Verified Levels</h2>
+            <section class="player-stat-card">
+                <h2>Verified Levels</h2>
+                <div id="verified-levels" class="player-level-list"></div>
+            </section>
 
-            <div id="verified-levels"></div>
+            <section class="player-stat-card">
+                <h2>Created Levels</h2>
+                <div id="created-levels" class="player-level-list"></div>
+            </section>
 
-            <h2>Created Levels</h2>
-
-            <div id="created-levels"></div>
-
-         </div>
-
+        </div>
     </main>
 
     <script src="sheets.js"></script>
     <script src="playerdata.js"></script>
-
 </body>
-
 </html>
