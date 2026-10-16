@@ -73,7 +73,8 @@ async function getPlayers() {
         return {
             name: row[0],
             tags: row[1],
-            gradient: row[2]
+            gradient: row[2],
+            hardest: row[3]
         };
 
     });
