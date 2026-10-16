@@ -30,6 +30,28 @@ async function loadPlayer() {
         player.name === playerName
     );
 
+    // Get all levels that are currently ranked
+    const rankedLevels = levels.filter(level =>
+    level.status === "Ranked"
+    );
+
+    // Get the ranked levels this player has beaten
+    const beatenRankedLevels = rankedLevels.filter(level =>
+        completions.some(completion =>
+            completion.player === playerName &&
+            completion.levelID === level.levelID
+        )
+    );
+
+    // Calculate list completion as a percentage
+    const completionPercentage = rankedLevels.length > 0
+        ? (beatenRankedLevels.length / rankedLevels.length) * 100
+        : 0;
+
+    // Display the result
+    document.getElementById("player-completion").textContent =
+        `${completionPercentage.toFixed(1)}% (${beatenRankedLevels.length}/${rankedLevels.length})`;
+
     // Display the player's hardest completed level
     document.getElementById("player-hardest").textContent =
     player.hardest && player.hardest.trim()
