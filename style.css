@@ -434,4 +434,119 @@ header p {
     pointer-events: none;
 }
 
+
+/* Player profile page layout */
+.player-profile-main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Hardest level header card */
+.hardest-card {
+    background: white;
+    border-radius: 10px;
+    padding: 22px 25px;
+    margin: 80px 0 20px;
+    border-left: 5px solid #222;
+}
+
+.hardest-card h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #666;
+}
+
+#player-hardest {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Two-column grid */
+.player-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+/* Individual statistics boxes */
+.player-stat-card {
+    min-width: 0;
+    background: white;
+    border-radius: 10px;
+    padding: 18px;
+    box-sizing: border-box;
+}
+
+.player-stat-card h2 {
+    margin: 0 0 15px;
+    font-size: 20px;
+}
+
+/* Scrollable list inside each box */
+.player-level-list {
+    height: 340px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+}
+
+/* Compact level entries within profile boxes */
+.player-stat-card .completed-level,
+.player-stat-card .level {
+    box-sizing: border-box;
+    min-width: 0;
+    margin-bottom: 8px;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 7px;
+}
+
+.player-stat-card .completed-level-link,
+.player-stat-card .level-link {
+    min-width: 0;
+    flex: 1;
+}
+
+.player-stat-card .level-thumbnail {
+    width: 70px;
+    height: 42px;
+    margin-right: 8px;
+}
+
+.player-stat-card .rank {
+    width: 34px;
+    flex-shrink: 0;
+    font-size: 16px;
+}
+
+.player-stat-card .level-info {
+    min-width: 0;
+}
+
+.player-stat-card .level-name {
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-stat-card .points {
+    margin: 0 5px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.player-stat-card .completion-button {
+    margin-left: 6px;
+    padding: 6px 8px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+
+
+
     
