@@ -30,6 +30,12 @@ async function loadPlayer() {
         player.name === playerName
     );
 
+    // Display the player's hardest completed level
+    document.getElementById("player-hardest").textContent =
+    player.hardest && player.hardest.trim()
+        ? player.hardest
+        : "Not specified";
+
     // Create the HTML for this player's tags
     const tagHTML = createTagHTML(player);
 
