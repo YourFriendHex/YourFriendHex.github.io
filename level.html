@@ -56,77 +56,68 @@
                 Level ID: <span id="level-id">Loading...</span>
 
                 <button id="copy-id-button">Copy ID</button>
-            </div>
+            
+<div class="level-stats-grid">
 
-            <div class="level-ratings">
+    <!-- Community ratings box -->
+    <section class="level-detail-card level-ratings">
+        <h2>Community Ratings</h2>
 
-            <h2>Community Ratings</h2>
-
-            <!-- Difficulty rating -->
-            <div class="rating-row">
-
-                <div class="rating-heading">
-                
+        <div class="rating-row">
+            <div class="rating-heading">
                 <span id="difficulty-value">Loading...</span>
-                </div>
-
-                <div
-                    class="rating-bar"
-                    role="progressbar"
-                    aria-label="Average difficulty"
-                    aria-valuemin="0"
-                    aria-valuemax="10"
-                    aria-valuenow="0"    
-                    id="difficulty-bar"
-                >
-                    <div class="rating-fill" id="difficulty-fill"></div>
-
-                    <div class="rating-text" id="difficulty-value"> </div>
-                </div>
-
             </div>
 
-         <!-- Enjoyment rating -->
-         <div class="rating-row">
-
-                <div class="rating-heading">
-                
-                <span id="enjoyment-value">Loading...</span>
-             </div>
-
-             <div
-                 class="rating-bar"
-                 role="progressbar"
-                 aria-label="Average enjoyment"
-                 aria-valuemin="0"
-                 aria-valuemax="10"
-                 aria-valuenow="0"
-                 id="enjoyment-bar"
+            <div
+                class="rating-bar"
+                role="progressbar"
+                aria-label="Average difficulty"
+                aria-valuemin="0"
+                aria-valuemax="10"
+                aria-valuenow="0"
+                id="difficulty-bar"
             >
-                <div class="rating-fill" id="enjoyment-fill"></div>    
-
-                <div class="rating-text" id="enjoyment-value"> </div>
+                <div class="rating-fill" id="difficulty-fill"></div>
+                <div class="rating-text"></div>
             </div>
-
         </div>
 
-    </div>
+        <div class="rating-row">
+            <div class="rating-heading">
+                <span id="enjoyment-value">Loading...</span>
+            </div>
 
-            <div class="level-notes">
+            <div
+                class="rating-bar"
+                role="progressbar"
+                aria-label="Average enjoyment"
+                aria-valuemin="0"
+                aria-valuemax="10"
+                aria-valuenow="0"
+                id="enjoyment-bar"
+            >
+                <div class="rating-fill" id="enjoyment-fill"></div>
+                <div class="rating-text"></div>
+            </div>
+        </div>
+    </section>
 
-            <h2>Verifier Notes</h2>
-
+    <!-- Verifier notes box -->
+    <section class="level-detail-card level-notes">
+        <h2>Verifier Notes</h2>
+        <div class="level-notes-content">
             <p id="level-notes">Loading...</p>
-
-            </div>
-
-            <div class="victors">
-
-            <h2>Victors</h2>
-
-            <div id="victor-list"></div>
-
         </div>
+    </section>
+
+    <!-- Victors box -->
+    <section class="level-detail-card victors">
+        <h2>Victors</h2>
+        <div id="victor-list" class="victor-list"></div>
+    </section>
+
+</div>
+
 
             
         </div>
