@@ -617,7 +617,7 @@ header p {
     min-width: 0;
     box-sizing: border-box;
     padding: 20px;
-    background: #f8f8f8;
+    background: white;
     border: 1px solid #e5e5e5;
     border-radius: 10px;
 }
