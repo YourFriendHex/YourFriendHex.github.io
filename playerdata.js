@@ -40,7 +40,7 @@ async function loadPlayer() {
         completions.some(completion =>
             completion.player === playerName &&
             completion.levelID === level.levelID
-        )
+        ) || level.verifier === playerName
     );
 
     // Calculate list completion as a percentage
