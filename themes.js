@@ -51,8 +51,8 @@ const themes = {
         boxBackground: `
             linear-gradient(
                 135deg,
-                #000000 70%,
-                #ff0000 30%
+                #ff0000 0%,
+                #000000 100%
             )
         `,
         boxOutline: "#c00000",
