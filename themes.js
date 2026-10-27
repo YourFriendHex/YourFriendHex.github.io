@@ -37,7 +37,7 @@ const themes = {
     },
 
     dark: {
-        name: "Dark + Red",
+        name: "Slaughterhouse",
 
         pageBackground: "#000000",
 
