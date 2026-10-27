@@ -690,7 +690,7 @@ main {
 
 /* Extra scrolling room beneath the last level */
 main {
-    padding-bottom: 180px;
+    padding-bottom: 200px;
     box-sizing: border-box;
 }
 
