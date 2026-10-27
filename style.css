@@ -3,35 +3,6 @@ body {
     margin: 0;
     background: #f2f2f2;
     color: #222;
-
-    background-image: url("https://ik.imagekit.io/2p4y4oqkx/IMG_2891.gif?updatedAt=1793098614769");
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-attachment: fixed;
-    background-size: 100% auto;
-}
-
-/* Animated background fixed to the bottom of the screen */
-body::before {
-    content: "";
-
-    position: fixed;
-    inset: 0;
-
-    background-image: url("images/bottom.gif");
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: 100% auto;
-
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Keep page content above the animated background */
-body > header,
-body > main {
-    position: relative;
-    z-index: 1;
 }
 
 header {
