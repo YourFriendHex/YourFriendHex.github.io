@@ -37,9 +37,9 @@ const themes = {
     },
 
     dark: {
-        name: "Dark",
+        name: "Dark + Red",
 
-        pageBackground: "#151515",
+        pageBackground: "#000000",
 
         // Replace this with the path to your dark theme background image.
         pageImage: 'url("images/dark-background.jpg")',
@@ -51,14 +51,14 @@ const themes = {
         boxBackground: `
             linear-gradient(
                 135deg,
-                #292929 0%,
-                #181818 100%
+                #000000 0%,
+                #ff0000 100%
             )
         `,
-        boxOutline: "#454545",
+        boxOutline: "#c00000",
 
-        textColor: "#eeeeee",
-        secondaryTextColor: "#bbbbbb",
+        textColor: "#c00000",
+        secondaryTextColor: "#900000",
         linkColor: "#8ab4ff",
 
         buttonBackground: "#383838",
