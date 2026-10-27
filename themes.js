@@ -33,7 +33,7 @@ const themes = {
         ratingText: "#222222",
 
         // Keep the bottom GIF that is already in the HTML
-        bottomGif: null
+        bottomGif: 'url("https://ik.imagekit.io/2p4y4oqkx/IMG_2894.gif?updatedAt=1793132699989")'
     },
 
     dark: {
