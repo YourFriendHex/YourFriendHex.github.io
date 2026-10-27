@@ -307,12 +307,8 @@ header p {
 
     font-size: calc(1em - 8px);
     font-weight: bold;
-
-    
-
-    background:
-        linear-gradient(white, white) padding-box,
-        linear-gradient(to right, currentColor, currentColor) border-box;
+     
+    background: transparent;
 }
 
 .victor {
