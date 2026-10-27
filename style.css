@@ -1,15 +1,67 @@
+/* =========================
+   WEBSITE THEMES
+   ========================= */
+
+:root {
+    /* Main page */
+    --page-background: #f2f2f2;
+    --page-image: none;
+    --page-text: #222222;
+
+    /* Header */
+    --header-image: url("copy_343ABA05-15B9-43E9-93F7-6299D6457447.gif");
+    --header-text: #ffffff;
+
+    /* Bottom animation */
+    --bottom-gif-image: none;
+
+    /* Boxes */
+    --box-background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #e3feff 100%
+    );
+    --box-outline: #e5e5e5;
+
+    /* Text */
+    --text-color: #222222;
+    --secondary-text-color: #666666;
+    --link-color: #4a78d0;
+
+    /* Buttons and accents */
+    --button-background: #222222;
+    --button-text: #ffffff;
+    --button-hover: #444444;
+    --accent-color: #4a78d0;
+
+    /* Rating bars */
+    --rating-background: #dddddd;
+    --rating-text: #222222;
+}
+
+
+
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #f2f2f2;
-    color: #222;
+
+    background-color: var(--page-background);
+    background-image: var(--page-image);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: var(--page-text);
 }
+
 
 header {
     text-align: center;
     padding: 30px;
 
-    background-image: url("copy_343ABA05-15B9-43E9-93F7-6299D6457447.gif");
+    background-image: var(--header-image);
     background-size: cover;
     background-position: center;
 
@@ -17,7 +69,7 @@ header {
     top: 0;
     z-index: 1000;
 
-    color: white;
+    color: var(--header-text);
 }
 
 main {
@@ -30,16 +82,14 @@ main {
     display: flex;
     align-items: center;
 
-    background: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    #e3feff 100%
-);
+    background: var(--box-background);
+    border: 1px solid var(--box-outline);
+    color: var(--text-color);
     margin-bottom: 10px;
     padding: 20px;
 
     border-radius: 8px;
-    border: 1px solid #e5e5e5;
+    
 
 }
 
@@ -698,4 +748,74 @@ main {
     box-sizing: border-box;
 }
 
+/* THEME-AWARE CARDS */
+
+/* Main cards and panels */
+.level-page,
+.player,
+.hardest-card,
+.player-stat-card,
+.player-info-card,
+.level-detail-card {
+    background: var(--box-background);
+    color: var(--text-color);
+    border-color: var(--box-outline);
+}
+
+/* Keep the left accent on the hardest-level card */
+.hardest-card {
+    border-left: 5px solid var(--box-outline);
+}
+
+/* Level entries inside player profiles */
+.player-stat-card .completed-level,
+.player-stat-card .level {
+    background: var(--box-background);
+    color: var(--text-color);
+    border-color: var(--box-outline);
+}
+
+/* Secondary text */
+.creator,
+.verifier,
+.level-id,
+.hardest-card h2 {
+    color: var(--secondary-text-color);
+}
+
+/* =========================
+   THEME-AWARE BUTTONS
+   ========================= */
+
+.back-button,
+#copy-id-button,
+.small-tab,
+.completion-button {
+    background: var(--button-background);
+    color: var(--button-text);
+}
+
+/* Button hover effect */
+.back-button:hover,
+#copy-id-button:hover,
+.small-tab:hover,
+.completion-button:hover {
+    background: var(--button-hover);
+}
+
+/* Keep live completions visually distinct */
+.live-completion {
+    background: var(--secondary-text-color);
+    color: var(--button-text);
+}
+
+/* THEME-AWARE RATING BARS */
+
+.rating-bar {
+    background: var(--rating-background);
+}
+
+.rating-text {
+    color: var(--rating-text);
+}
 
