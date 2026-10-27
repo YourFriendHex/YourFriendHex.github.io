@@ -661,3 +661,23 @@ header p {
     overflow-wrap: anywhere;
 }
 
+/* Fixed GIF at the bottom of the screen */
+.bottom-gif {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: auto;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Keep the website content above the GIF */
+header,
+main {
+    position: relative;
+    z-index: 1;
+}
+
