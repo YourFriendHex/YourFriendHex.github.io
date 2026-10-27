@@ -72,6 +72,51 @@
     alt=""
     aria-hidden="true"
 >
+<button
+    id="theme-menu-button"
+    class="theme-menu-button"
+    type="button"
+    aria-controls="theme-drawer"
+    aria-expanded="false"
+>
+    ☼ Themes
+</button>
+
+<div id="theme-overlay" class="theme-overlay"></div>
+
+<aside
+    id="theme-drawer"
+    class="theme-drawer"
+    aria-label="Website themes"
+    aria-hidden="true"
+>
+    <div class="theme-drawer-header">
+        <h2>Website Themes</h2>
+        <button
+            id="theme-close-button"
+            class="theme-close-button"
+            type="button"
+            aria-label="Close theme menu"
+        >
+            ×
+        </button>
+    </div>
+
+    <p>Choose how the website looks.</p>
+
+    <div class="theme-options">
+        <button class="theme-option" type="button" data-theme-choice="default">
+            <span class="theme-preview default-preview"></span>
+            <span>Default</span>
+        </button>
+
+        <button class="theme-option" type="button" data-theme-choice="dark">
+            <span class="theme-preview dark-preview"></span>
+            <span>Dark + Red</span>
+        </button>
+    </div>
+</aside>
+    
     <script src="themes.js"></script>
 </body>
 
