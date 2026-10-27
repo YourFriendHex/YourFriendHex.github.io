@@ -33,7 +33,7 @@ const themes = {
         ratingText: "#222222",
 
         // Keep the bottom GIF that is already in the HTML
-        bottomGif: 'url("https://ik.imagekit.io/2p4y4oqkx/IMG_2894.gif?updatedAt=1793132699989")'
+        bottomGif: "https://ik.imagekit.io/2p4y4oqkx/IMG_2894.gif?updatedAt=1793132699989"
     },
 
     dark: {
@@ -71,7 +71,7 @@ const themes = {
         ratingText: "#eeeeee",
 
         // Replace this with the path to your dark theme bottom GIF.
-        bottomGif: 'url("https://ik.imagekit.io/2p4y4oqkx/IMG_2894.gif")'
+        bottomGif: "https://ik.imagekit.io/2p4y4oqkx/IMG_2894.gif"
     }
 };
 
