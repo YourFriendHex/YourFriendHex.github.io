@@ -234,7 +234,7 @@ function createTagHTML(player) {
                 style="
                     color: ${textColor};
                     background:
-                        linear-gradient(transparent, transparent) padding-box,
+                        linear-gradient(white, white) padding-box,
                         ${gradient} border-box;
                       "
             >
