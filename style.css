@@ -819,3 +819,166 @@ main {
     color: var(--rating-text);
 }
 
+/* =========================
+   SLIDING THEME MENU
+   ========================= */
+
+/* Button that opens the menu */
+.theme-menu-button {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    padding: 12px 16px;
+    border: 1px solid var(--box-outline);
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+
+    background: var(--button-background);
+    color: var(--button-text);
+
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+    z-index: 1200;
+}
+
+/* Dimmed area behind the drawer */
+.theme-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    z-index: 1300;
+}
+
+/* The drawer itself */
+.theme-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 320px;
+    max-width: 85%;
+    height: 100%;
+    box-sizing: border-box;
+
+    padding: 25px;
+
+    background: var(--box-background);
+    color: var(--text-color);
+    border-left: 1px solid var(--box-outline);
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+
+    overflow-y: auto;
+    z-index: 1400;
+}
+
+/* Open state */
+.theme-drawer.is-open {
+    transform: translateX(0);
+}
+
+.theme-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Drawer heading */
+.theme-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.theme-drawer-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Close button */
+.theme-close-button {
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* Theme choices */
+.theme-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    padding: 12px;
+
+    background: var(--box-background);
+    color: var(--text-color);
+    border: 1px solid var(--box-outline);
+    border-radius: 8px;
+
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Highlight the currently selected theme */
+.theme-option.selected {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Small preview swatches */
+.theme-preview {
+    width: 48px;
+    height: 32px;
+    flex-shrink: 0;
+
+    border: 1px solid var(--box-outline);
+    border-radius: 5px;
+}
+
+.default-preview {
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #e3feff
+    );
+}
+
+.dark-preview {
+    background: linear-gradient(
+        135deg,
+        #242424,
+        #111111
+    );
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .theme-drawer,
+    .theme-overlay {
+        transition: none;
+    }
+}
