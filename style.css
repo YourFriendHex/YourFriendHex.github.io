@@ -3,6 +3,12 @@ body {
     margin: 0;
     background: #f2f2f2;
     color: #222;
+
+    background-image: url("https://ik.imagekit.io/2p4y4oqkx/IMG_2891.gif?updatedAt=1793098614769");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-attachment: fixed;
+    background-size: 100% auto;
 }
 
 header {
