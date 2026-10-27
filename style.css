@@ -316,7 +316,11 @@ header p {
     display: flex;
     align-items: center;
 
-    background: white;
+    background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #e3feff 100%
+);
 
     margin-bottom: 10px;
     padding: 15px;
