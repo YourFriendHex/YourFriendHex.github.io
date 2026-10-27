@@ -51,7 +51,7 @@ const themes = {
         boxBackground: `
             linear-gradient(
                 135deg,
-                #ff0000 0%,
+                #7a0000 0%,
                 #000000 100%
             )
         `,
