@@ -983,6 +983,6 @@ main {
 /* Move the bottom GIF down on non-portrait-mobile screens */
 @media (orientation: landscape), (min-width: 768px) {
     .bottom-gif {
-        bottom: -15px;
+        bottom: -30px;
     }
 }
