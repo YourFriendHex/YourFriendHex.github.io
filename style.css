@@ -30,11 +30,17 @@ main {
     display: flex;
     align-items: center;
 
-    background: white;
+    background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f2f2f2 100%
+);
     margin-bottom: 10px;
-    padding: 15px;
+    padding: 20px;
 
     border-radius: 8px;
+    border: 1px solid #e5e5e5;
+
 }
 
 .rank {
