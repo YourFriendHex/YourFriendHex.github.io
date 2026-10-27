@@ -71,7 +71,7 @@ const themes = {
         ratingText: "#eeeeee",
 
         // Replace this with the path to your dark theme bottom GIF.
-        bottomGif: "images/dark-bottom.gif"
+        bottomGif: "https://ik.imagekit.io/2p4y4oqkx/IMG_2894.gif"
     }
 };
 
