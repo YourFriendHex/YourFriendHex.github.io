@@ -986,3 +986,259 @@ main {
         bottom: -30px;
     }
 }
+
+
+/* =========================================
+   MOBILE LAYOUT — PORTRAIT PHONES - PROBABLY DOESNT WORK STILL
+   ========================================= */
+
+@media screen and (max-width: 650px) and (orientation: portrait) {
+
+    /* General page layout */
+    body {
+        background-attachment: scroll;
+    }
+
+    main,
+    .player-profile-main {
+        width: auto;
+        max-width: 100%;
+        margin: 15px 0;
+        padding-left: 12px;
+        padding-right: 12px;
+        box-sizing: border-box;
+    }
+
+    /* Header */
+    header {
+        padding: 22px 12px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    /* Back button */
+    .back-button {
+        top: 10px;
+        left: 10px;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    /* Demon list entries */
+    .level {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .level-link {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .level-thumbnail {
+        width: 90px;
+        height: 51px;
+        margin-right: 5px;
+    }
+
+    .rank {
+        width: 35px;
+        font-size: 18px;
+    }
+
+    .level-name {
+        font-size: 16px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .level-info {
+        min-width: 0;
+    }
+
+    .creator,
+    .verifier {
+        font-size: 12px;
+        min-width: 0;
+    }
+
+    .points {
+        margin: 0 5px;
+        font-size: 13px;
+    }
+
+    /* Player leaderboard */
+    .player {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .player-link {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .player-rank {
+        width: 35px;
+        font-size: 18px;
+    }
+
+    .player-name {
+        min-width: 0;
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .player-points {
+        font-size: 13px;
+    }
+
+    .small-tab {
+        margin-left: 5px;
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    /* Tags */
+    .player-tag {
+        margin: 3px 2px;
+        padding: 2px 5px;
+        font-size: 11px;
+    }
+
+    /* Individual level page */
+    .level-page {
+        width: auto;
+        max-width: 100%;
+        margin: 75px 0 20px;
+        padding: 15px;
+    }
+
+    .level-thumbnail-large {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .level-rank {
+        font-size: 20px;
+    }
+
+    .level-points {
+        font-size: 17px;
+    }
+
+    .level-stats-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        margin-top: 18px;
+    }
+
+    .level-detail-card {
+        padding: 15px;
+    }
+
+    .level-detail-card h2 {
+        font-size: 18px;
+    }
+
+    .rating-bar {
+        height: 25px;
+    }
+
+    .level-notes-content,
+    .victor-list {
+        max-height: 250px;
+    }
+
+    /* Player profile */
+    .player-info-card {
+        padding: 18px 12px;
+    }
+
+    .player-info-card h2 {
+        font-size: 23px;
+        overflow-wrap: anywhere;
+    }
+
+    .hardest-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        padding: 17px;
+        margin-top: 20px;
+    }
+
+    .completion-info {
+        text-align: left;
+    }
+
+    #player-hardest,
+    #player-completion {
+        font-size: 20px;
+    }
+
+    .player-stats-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    .player-stat-card {
+        padding: 14px;
+    }
+
+    .player-level-list {
+        height: 300px;
+    }
+
+    .player-stat-card .level-thumbnail {
+        width: 55px;
+        height: 32px;
+    }
+
+    .player-stat-card .level-name {
+        font-size: 13px;
+    }
+
+    .player-stat-card .points {
+        font-size: 11px;
+    }
+
+    .player-stat-card .completion-button {
+        margin-left: 4px;
+        padding: 6px;
+        font-size: 10px;
+    }
+
+    /* Theme menu */
+    .theme-menu-button {
+        padding: 10px 11px;
+        font-size: 13px;
+    }
+
+    .theme-drawer {
+        width: 300px;
+        max-width: 88vw;
+        padding: 20px;
+    }
+
+    /* Bottom animation */
+    .bottom-gif {
+        max-height: 15vh;
+        width: 100%;
+        object-fit: contain;
+        object-position: bottom center;
+    }
+
+    main {
+        padding-bottom: 150px;
+    }
+}
+
