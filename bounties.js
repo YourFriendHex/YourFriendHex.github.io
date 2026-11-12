@@ -52,9 +52,14 @@ async function loadBounties() {
             creator.className = "bounty-card-creator";
             creator.textContent = `By ${bounty.creator || "Unknown"}`;
 
+            
             const status = document.createElement("span");
-            status.className = "bounty-card-status";
-            status.textContent = bounty.status || "No status";
+
+            const statusName = (bounty.status || "Unknown").trim().toLowerCase();
+
+            status.className = `bounty-status ${statusName}`;
+            status.textContent = bounty.status || "Unknown";
+
 
             info.appendChild(name);
             info.appendChild(creator);
@@ -108,8 +113,11 @@ function openBountyModal(bounty) {
     document.getElementById("modal-needs").textContent =
         bounty.needs || "No specific needs listed.";
 
-    document.getElementById("modal-status").textContent =
-        bounty.status || "Unknown";
+    const modalStatus = document.getElementById("modal-status");
+    const statusName = (bounty.status || "Unknown").trim().toLowerCase();
+
+    modalStatus.textContent = bounty.status || "Unknown";
+    modalStatus.className = `bounty-status ${statusName}`;
 
     document.getElementById("modal-contact").textContent =
         bounty.contact || "No contact information provided.";
