@@ -37,7 +37,46 @@
         </div>
     </main>
 
-    <!-- Bounty details pop-up will go here -->
+    
+<div id="bounty-modal" class="bounty-modal" aria-hidden="true">
+
+    <div class="bounty-modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-level-name">
+
+        <button id="bounty-modal-close" class="bounty-modal-close" aria-label="Close pop-up">
+            &times;
+        </button>
+
+        <img id="modal-thumbnail" class="bounty-modal-thumbnail" src="" alt="Level thumbnail">
+
+        <div class="bounty-modal-info">
+
+            <h2 id="modal-level-name">Level Name</h2>
+
+            <p class="bounty-modal-creator">
+                Created by <span id="modal-creator"></span>
+            </p>
+
+            <div class="bounty-modal-detail">
+                <h3>Description</h3>
+                <p id="modal-description"></p>
+            </div>
+
+            <div class="bounty-modal-detail">
+                <h3>What's Needed</h3>
+                <p id="modal-needs"></p>
+            </div>
+
+            <div class="bounty-modal-footer">
+                <p>Status: <span id="modal-status"></span></p>
+                <p>Contact: <span id="modal-contact"></span></p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 
     <script src="sheets.js"></script>
     <script src="bounties.js"></script>
