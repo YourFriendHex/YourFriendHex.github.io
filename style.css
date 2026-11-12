@@ -1242,3 +1242,259 @@ main {
     }
 }
 
+
+/* ============================= */
+/* BOUNTY BOARD                  */
+/* ============================= */
+
+.bounty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+    margin: 25px auto;
+    max-width: 1200px;
+}
+
+.bounty-section {
+    min-width: 0;
+    padding: 20px;
+    background: var(--box-background);
+    color: var(--text-color);
+    border: 1px solid var(--box-outline);
+    border-radius: 12px;
+}
+
+.bounty-section h2 {
+    margin: 0 0 18px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.bounty-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bounty-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: var(--text-color);
+    background: var(--page-background);
+    border: 1px solid var(--box-outline);
+    border-radius: 9px;
+    cursor: pointer;
+    font: inherit;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.bounty-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+}
+
+.bounty-card-thumbnail {
+    width: 90px;
+    height: 51px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.bounty-card-info {
+    min-width: 0;
+}
+
+.bounty-card-name {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.bounty-card-creator {
+    display: block;
+    color: var(--secondary-text-color);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.bounty-card-status {
+    display: inline-block;
+    margin-top: 6px;
+    color: var(--secondary-text-color);
+    font-size: 12px;
+}
+
+.bounty-empty {
+    color: var(--secondary-text-color);
+    text-align: center;
+    font-size: 14px;
+}
+
+/* ============================= */
+/* BOUNTY POP-UP                 */
+/* ============================= */
+
+.bounty-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.7);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.bounty-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.bounty-modal-content {
+    position: relative;
+    display: flex;
+    gap: 22px;
+    width: 100%;
+    max-width: 750px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 25px;
+    box-sizing: border-box;
+    background: var(--box-background);
+    color: var(--text-color);
+    border: 1px solid var(--box-outline);
+    border-radius: 14px;
+    transform: translateY(12px);
+    transition: transform 0.2s ease;
+}
+
+.bounty-modal.is-open .bounty-modal-content {
+    transform: translateY(0);
+}
+
+.bounty-modal-thumbnail {
+    width: 40%;
+    max-width: 280px;
+    height: fit-content;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.bounty-modal-info {
+    min-width: 0;
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.bounty-modal-info h2 {
+    margin: 0 35px 5px 0;
+    color: var(--text-color);
+}
+
+.bounty-modal-creator {
+    margin-top: 0;
+    color: var(--secondary-text-color);
+}
+
+.bounty-modal-detail {
+    margin-top: 20px;
+}
+
+.bounty-modal-detail h3 {
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.bounty-modal-detail p {
+    margin-top: 0;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.bounty-modal-footer {
+    margin-top: 22px;
+    padding-top: 12px;
+    border-top: 1px solid var(--box-outline);
+    overflow-wrap: anywhere;
+}
+
+.bounty-modal-footer p {
+    margin: 7px 0;
+}
+
+.bounty-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--button-background);
+    color: var(--button-text);
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.bounty-modal-close:hover {
+    background: var(--button-hover);
+}
+
+/* ============================= */
+/* BOUNTY BOARD — MOBILE         */
+/* ============================= */
+
+@media screen and (max-width: 800px) {
+    .bounty-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+        margin: 18px 0;
+    }
+
+    .bounty-section {
+        padding: 16px;
+    }
+
+    .bounty-modal-content {
+        flex-direction: column;
+        gap: 15px;
+        max-height: 90vh;
+        padding: 20px;
+    }
+
+    .bounty-modal-thumbnail {
+        width: 100%;
+        max-width: none;
+    }
+
+    .bounty-modal-info h2 {
+        margin-right: 35px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bounty-card,
+    .bounty-modal,
+    .bounty-modal-content {
+        transition: none;
+    }
+}
+
+
