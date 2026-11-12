@@ -60,6 +60,24 @@ return sheetData;
     // Give the levels back to whatever called this function
     return levels;
 }
+// Get bounties from google sheets
+async function getBounties() {
+    const rows = await getSheet("Bounties");
+
+    const bounties = rows.map(row => ({
+        id: row[0],
+        type: row[1],
+        levelName: row[2],
+        creator: row[3],
+        thumbnail: row[4],
+        description: row[5],
+        needs: row[6],
+        contact: row[7],
+        status: row[8]
+    }));
+
+    return bounties;
+}
 
 // Get Players data from sheets
 async function getPlayers() {
