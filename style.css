@@ -1512,17 +1512,17 @@ main {
 }
 
 .bounty-status.open {
-    background: #d8f3dc;
+    background: rgbd(53, 168, 83, 0.15);
     color: #237a3b;
 }
 
 .bounty-status.claimed {
-    background: #fff0c2;
+    background: rgba(215, 155, 25, 0.15);
     color: #946200;
 }
 
 .bounty-status.closed {
-    background: #f8d7da;
+    background: rgbd(244, 82, 96, 0.15);
     color: #a52834;
 }
 
