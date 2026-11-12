@@ -1526,20 +1526,4 @@ main {
     color: #a52834;
 }
 
-/* Dark theme adjustments */
-:root[style*="--page-background: rgb(0, 0, 0)"] .bounty-status.open {
-    background: #164b2a;
-    color: #a5edb8;
-}
-
-:root[style*="--page-background: rgb(0, 0, 0)"] .bounty-status.claimed {
-    background: #604600;
-    color: #ffe08a;
-}
-
-:root[style*="--page-background: rgb(0, 0, 0)"] .bounty-status.closed {
-    background: #651d25;
-    color: #ffb5bc;
-}
-
 
