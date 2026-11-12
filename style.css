@@ -1498,3 +1498,48 @@ main {
 }
 
 
+/* Bounty status indicators */
+
+.bounty-status {
+    display: inline-block;
+    width: fit-content;
+    margin-top: 7px;
+    padding: 4px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.bounty-status.open {
+    background: #d8f3dc;
+    color: #237a3b;
+}
+
+.bounty-status.claimed {
+    background: #fff0c2;
+    color: #946200;
+}
+
+.bounty-status.closed {
+    background: #f8d7da;
+    color: #a52834;
+}
+
+/* Dark theme adjustments */
+:root[style*="--page-background: rgb(0, 0, 0)"] .bounty-status.open {
+    background: #164b2a;
+    color: #a5edb8;
+}
+
+:root[style*="--page-background: rgb(0, 0, 0)"] .bounty-status.claimed {
+    background: #604600;
+    color: #ffe08a;
+}
+
+:root[style*="--page-background: rgb(0, 0, 0)"] .bounty-status.closed {
+    background: #651d25;
+    color: #ffb5bc;
+}
+
+
