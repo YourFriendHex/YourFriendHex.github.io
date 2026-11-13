@@ -291,6 +291,26 @@ header p {
     text-decoration: none;
 }
 
+/* Player avatar and name */
+.player-name-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    flex: 1;
+    min-width: 0;
+}
+
+.player-avatar {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    flex-shrink: 0;
+}
+
 
 #completed-levels {
     margin-top: 20px;
