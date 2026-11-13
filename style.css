@@ -1512,7 +1512,7 @@ main {
 }
 
 .bounty-status.open {
-    background: rgbd(53, 168, 83, 025);
+    background: rgbd(53, 168, 83, 0.25);
     color: #237a3b;
 }
 
