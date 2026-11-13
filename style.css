@@ -1526,4 +1526,14 @@ main {
     color: #a52834;
 }
 
+.bounty-card-id,
+.bounty-modal-id {
+    display: block;
+    color: var(--secondary-text-color);
+    font-size: 11px;
+    opacity: 0.8;
+}
 
+.bounty-modal-id {
+    margin: 4px 0 10px;
+}
