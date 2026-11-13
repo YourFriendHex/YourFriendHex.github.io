@@ -1512,18 +1512,21 @@ main {
 }
 
 .bounty-status.open {
-    background: rgbd(53, 168, 83, 0.25);
+    background: rgba(53, 168, 83, 0.25);
     color: #237a3b;
+    border: 1px solid rgba(53, 168, 83, 0.25);
 }
 
 .bounty-status.claimed {
     background: rgba(215, 155, 25, 0.25);
     color: #946200;
+    border: 1px solid rgba(215, 155, 25, 0.25);
 }
 
 .bounty-status.closed {
-    background: rgbd(244, 82, 96, 0.25);
+    background: rgba(244, 82, 96, 0.25);
     color: #a52834;
+    border: 1px solid rgba(244, 82, 96, 0.25);
 }
 
 .bounty-card-id,
