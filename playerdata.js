@@ -119,6 +119,16 @@ async function loadPlayer() {
     document.getElementById("player-name").textContent =
         player.name;
 
+    // Display the player's Discord avatar
+    const avatarElement = document.getElementById("player-avatar");
+
+    if (player.avatar) {
+        avatarElement.src = player.avatar;
+        avatarElement.style.display = "inline-block";
+    } else {
+        avatarElement.style.display = "none";
+    }
+
     // Display their total points
     document.getElementById("player-points").textContent =
         `${totalPoints} points`;
