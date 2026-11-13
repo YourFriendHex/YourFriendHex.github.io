@@ -61,7 +61,7 @@ async function loadBounties() {
 
             const statusName = (bounty.status || "Unknown").trim().toLowerCase();
 
-            status.className = `bounty-status ${statusName}`;
+            status.className = `bounty-status "•"${statusName}`;
             status.textContent = bounty.status || "Unknown";
 
 
