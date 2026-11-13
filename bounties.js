@@ -50,7 +50,7 @@ async function loadBounties() {
 
             const bountyID = document.createElement("span");
             bountyID.className = "bounty-card-id";
-            bountyID.textContent = `Bounty ID: ${bounty.id || "Unknown"}`;
+            bountyID.textContent = `ID: ${bounty.id || "Unknown"}`;
 
             const creator = document.createElement("span");
             creator.className = "bounty-card-creator";
