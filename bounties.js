@@ -109,6 +109,9 @@ function openBountyModal(bounty) {
     document.getElementById("modal-level-name").textContent =
         bounty.levelName || "Unnamed Level";
 
+    document.getElementById("modal-bounty-id").textContent =
+        bounty.id || "Unknown";
+
     document.getElementById("modal-creator").textContent =
         bounty.creator || "Unknown";
 
