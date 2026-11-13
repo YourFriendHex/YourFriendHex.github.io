@@ -1231,7 +1231,7 @@ main {
 
     /* Bottom animation */
     .bottom-gif {
-        max-height: 15vh;
+        
         width: 100%;
         object-fit: contain;
         object-position: bottom center;
