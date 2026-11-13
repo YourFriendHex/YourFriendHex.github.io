@@ -48,6 +48,10 @@ async function loadBounties() {
             name.className = "bounty-card-name";
             name.textContent = bounty.levelName || "Unnamed Level";
 
+            const bountyID = document.createElement("span");
+            bountyID.className = "bounty-card-id";
+            bountyID.textContent = `Bounty ID: ${bounty.id || "Unknown"}`;
+
             const creator = document.createElement("span");
             creator.className = "bounty-card-creator";
             creator.textContent = `By ${bounty.creator || "Unknown"}`;
@@ -62,6 +66,7 @@ async function loadBounties() {
 
 
             info.appendChild(name);
+            info.appendChild(bountyID);
             info.appendChild(creator);
             info.appendChild(status);
             card.appendChild(info);
