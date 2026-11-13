@@ -1,3 +1,18 @@
+// Load the shared theme menu HTML.
+async function loadThemeMenu() {
+    const response = await fetch("theme-menu.html");
+    const html = await response.text();
+
+    document.body.insertAdjacentHTML("beforeend", html);
+
+    // Initialize the theme menu after its HTML exists.
+    initializeThemeMenu();
+}
+
+loadThemeMenu();
+
+
+
 // The theme choices available on the website
 const themes = {
     default: {
@@ -201,7 +216,7 @@ function applyTheme(themeName) {
 }
 
 
-
+function initializeThemeMenu() {
 
 const themeMenuButton =
     document.getElementById("theme-menu-button");
@@ -214,6 +229,8 @@ const themeDrawer =
 
 const themeOverlay =
     document.getElementById("theme-overlay");
+
+}
 
 
 function openThemeMenu() {
