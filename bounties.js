@@ -62,7 +62,7 @@ async function loadBounties() {
             const statusName = (bounty.status || "Unknown").trim().toLowerCase();
 
             status.className = `bounty-status ${statusName}`;
-            status.textContent = "•"bounty.status || "Unknown";
+            status.textContent = `● ${bounty.status || "Unknown"}`;
 
 
             info.appendChild(name);
@@ -124,7 +124,7 @@ function openBountyModal(bounty) {
     const modalStatus = document.getElementById("modal-status");
     const statusName = (bounty.status || "Unknown").trim().toLowerCase();
 
-    modalStatus.textContent = "•"bounty.status || "Unknown";
+    modalStatus.textContent = bounty.status || "Unknown";
     modalStatus.className = `bounty-status ${statusName}`;
 
     document.getElementById("modal-contact").textContent =
