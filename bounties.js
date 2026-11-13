@@ -124,7 +124,7 @@ function openBountyModal(bounty) {
     const modalStatus = document.getElementById("modal-status");
     const statusName = (bounty.status || "Unknown").trim().toLowerCase();
 
-    modalStatus.textContent = bounty.status || "Unknown";
+    modalStatus.textContent = "•"bounty.status || "Unknown";
     modalStatus.className = `bounty-status ${statusName}`;
 
     document.getElementById("modal-contact").textContent =
