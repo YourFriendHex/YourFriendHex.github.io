@@ -27,9 +27,21 @@ async function loadPlayers() {
                     #${index + 1}
                 </div>
 
-                <div class="player-name">
-                    ${player.name}
-                    ${tagHTML}
+                <div class="player-name-container">
+
+                    ${player.avatar ? `
+                        <img
+                            src="${player.avatar}"
+                            class="player-avatar"
+                            alt=""
+                        >
+                    ` : ""}
+
+                    <div class="player-name">
+                        ${player.name}
+                        ${tagHTML}
+                    </div>
+
                 </div>
 
                 <div class="player-points">
