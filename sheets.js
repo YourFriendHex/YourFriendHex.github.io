@@ -172,7 +172,8 @@ async function getPlayerScores() {
             name: player.name,
             points: points,
             gradient: player.gradient,
-            tags: player.tags
+            tags: player.tags,
+            avatar: player.avatar
         };
 
     });
