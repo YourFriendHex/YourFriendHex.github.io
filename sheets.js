@@ -124,7 +124,8 @@ async function getCompletions() {
     return completions;
 }
 
-//  
+
+
 async function getPlayerScores() {
 
     // Get all of the data
@@ -137,7 +138,9 @@ async function getPlayerScores() {
 
         return {
             levelID: row[0],
-            points: Number(row[3])
+            points: Number(row[3]) || 0,
+            creator: (row[4] || "").trim(),
+            creatorPoints: Number(row[9]) || 0
         };
 
     });
@@ -150,20 +153,28 @@ async function getPlayerScores() {
             completion.player === player.name
         );
 
-        // Start their score at zero
+        // Start their scores at zero
         let points = 0;
+        let creatorPoints = 0;
 
-        // Look at every level they completed
+        // Calculate regular Demon Points
         playerCompletions.forEach(completion => {
 
-            // Find the level they completed
             const level = levelData.find(level =>
                 level.levelID === completion.levelID
             );
 
-            // Add that level's points
             if (level) {
                 points += level.points;
+            }
+
+        });
+
+        // Calculate List Creator Points
+        levelData.forEach(level => {
+
+            if (level.creator === player.name) {
+                creatorPoints += level.creatorPoints;
             }
 
         });
@@ -171,6 +182,7 @@ async function getPlayerScores() {
         return {
             name: player.name,
             points: points,
+            creatorPoints: creatorPoints,
             gradient: player.gradient,
             tags: player.tags,
             avatar: player.avatar
@@ -180,6 +192,7 @@ async function getPlayerScores() {
 
     return playerScores;
 }
+
 
 // Get colors for player tags
 function tagColor(tag) {
