@@ -65,7 +65,7 @@ async function loadPlayer() {
     const tagContainer = document.getElementById("player-tags");
 
     // Display the player's tags
-    tagContainer.innerHTML = tagHTML;
+    tagContainer.innerHTML = parseCustomEmojis(tagHTML);
 
     // Find this player's completions
     const playerCompletions = completions.filter(completion =>
@@ -183,7 +183,7 @@ async function loadPlayer() {
         levelElement.classList.add("completed-level");
 
         // Create the HTML for the level
-        levelElement.innerHTML = `
+        levelElement.innerHTML = parseCustomEmojis(`
             <a
                 href="level.html?id=${level.levelID}"
                 class="completed-level-link"
@@ -214,7 +214,7 @@ async function loadPlayer() {
             </a>
 
             ${completionButton}
-        `;
+        `);
 
         list.appendChild(levelElement);
 
@@ -271,7 +271,7 @@ async function loadPlayer() {
             levelElement.classList.add("completed-level");
 
             // Create the HTML for the level
-            levelElement.innerHTML = `
+            levelElement.innerHTML = parseCustomEmojis(`
                 <a
                     href="level.html?id=${level.levelID}"
                     class="completed-level-link"
@@ -302,7 +302,7 @@ async function loadPlayer() {
                 </a>
 
                 ${completionButton}
-            `;
+            `);
 
             verifiedList.appendChild(levelElement);
 
@@ -330,7 +330,7 @@ async function loadPlayer() {
             levelElement.classList.add("level");
 
             // Create the HTML for the level
-            levelElement.innerHTML = `
+            levelElement.innerHTML = parseCustomEmojis(`
                     <a
                         href="level.html?id=${level.levelID}"
                         class="level-link"
@@ -359,7 +359,7 @@ async function loadPlayer() {
                     </div>
 
                 </a>
-            `;
+            `);
 
             createdList.appendChild(levelElement);
 
