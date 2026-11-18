@@ -1571,3 +1571,13 @@ main {
 .bounty-modal-id {
     margin: 4px 0 10px;
 }
+
+
+.custom-emoji {
+    width: 1.2em;
+    height: 1.2em;
+    object-fit: contain;
+    vertical-align: -0.2em;
+    display: inline-block;
+}
+
