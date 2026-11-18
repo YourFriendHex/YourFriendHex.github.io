@@ -171,7 +171,7 @@ async function loadPlayer() {
 
             completionButton = `
                 <span class="completion-button live-completion">
-                    Live Completion :ball:
+                    Live Completion
                 </span>
             `;
 
