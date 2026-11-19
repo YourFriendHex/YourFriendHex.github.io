@@ -1677,3 +1677,42 @@ main {
     margin-top: 12px;
 }
 
+/* =========================
+   LEADERBOARD TABS
+   ========================= */
+
+.leaderboard-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.leaderboard-tab {
+    padding: 12px 20px;
+
+    border: 1px solid var(--box-outline);
+    border-radius: 8px;
+
+    background: var(--box-background);
+    color: var(--text-color);
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.leaderboard-tab:hover {
+    border-color: var(--accent-color);
+}
+
+.leaderboard-tab.active {
+    background: var(--button-background);
+    color: var(--button-text);
+    border-color: var(--button-background);
+}
+
