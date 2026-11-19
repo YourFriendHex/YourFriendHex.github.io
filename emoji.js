@@ -11,7 +11,7 @@ const customEmojis = {
     swing: "./emojis/gj_swingBtn_off_001-uhd.png",
     discord: "./emojis/gj_discordIcon_001-uhd.png",
     youtube: "./emojis/gj_ytIcon_001-uhd.png",
-    list: "./emojis/GJ_lsitAddBtn_001-uhd.png",
+    list: "./emojis/GJ_listAddBtn_001-uhd.png",
     trophy: "./emojis/rankIcon_top10_001-uhd.png",
 };
 
