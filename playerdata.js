@@ -65,7 +65,7 @@ async function loadPlayer() {
     const tagContainer = document.getElementById("player-tags");
 
     // Display the player's tags
-    tagContainer.innerHTML = parseCustomEmojis(tagHTML);
+    tagContainer.innerHTML = (tagHTML);
 
     // Find this player's completions
     const playerCompletions = completions.filter(completion =>
@@ -183,7 +183,7 @@ async function loadPlayer() {
         levelElement.classList.add("completed-level");
 
         // Create the HTML for the level
-        levelElement.innerHTML = parseCustomEmojis(`
+        levelElement.innerHTML = (`
             <a
                 href="level.html?id=${level.levelID}"
                 class="completed-level-link"
@@ -271,7 +271,7 @@ async function loadPlayer() {
             levelElement.classList.add("completed-level");
 
             // Create the HTML for the level
-            levelElement.innerHTML = parseCustomEmojis(`
+            levelElement.innerHTML = (`
                 <a
                     href="level.html?id=${level.levelID}"
                     class="completed-level-link"
@@ -330,7 +330,7 @@ async function loadPlayer() {
             levelElement.classList.add("level");
 
             // Create the HTML for the level
-            levelElement.innerHTML = parseCustomEmojis(`
+            levelElement.innerHTML = (`
                     <a
                         href="level.html?id=${level.levelID}"
                         class="level-link"
