@@ -1,7 +1,7 @@
 
 const customEmojis = {
     creator_points: "./emojis/GJ_hammerIcon_001-uhd.png",
-    ball: "./emojis/gj_ballBtn_off_001-uhd.png",
+    ball: "emojis/gj_ballBtn_off_001-uhd.png",
     ufo: "./emojis/gj_birdBtn_off_001-uhd.png",
     wave: "./emojis/gj_dartBtn_off_001-uhd.png",
     cube: "./emojis/gj_iconBtn_off_001-uhd.png",
