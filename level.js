@@ -136,7 +136,7 @@ async function loadLevel() {
     }
 
     // Display both community ratings
-    displayRating("difficulty", "difficulty");
+    displayRating("gameplay", "difficulty");
     displayRating("enjoyment", "enjoyment");
 
 
