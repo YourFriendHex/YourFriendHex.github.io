@@ -138,8 +138,14 @@ async function loadPlayer() {
     }
 
     // Display their total points
-    document.getElementById("player-points").textContent =
-        `:star: ${totalPoints} points`;
+    document.getElementById("player-points").textContent = `
+        <img
+            src="emojis/GJ_bigStar_001-uhd.png"
+            class="custom-emoji"
+            alt=""
+        >
+        ${totalPoints} points
+    `;
 
     // Display their Creator Points
     document.getElementById("player-creator-points").innerHTML = `
