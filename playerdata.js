@@ -138,7 +138,7 @@ async function loadPlayer() {
     }
 
     // Display their total points
-    document.getElementById("player-points").textContent = `
+    document.getElementById("player-points").innerHTML = `
         <img
             src="emojis/GJ_bigStar_001-uhd.png"
             class="custom-emoji"
