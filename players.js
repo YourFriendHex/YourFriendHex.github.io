@@ -3,57 +3,111 @@ async function loadPlayers() {
     // Get the player scores
     const players = await getPlayerScores();
 
-    // Sort players from highest score to lowest score
-    players.sort((a, b) => b.points - a.points);
-
-    // Find the player list on the page
+    // Find the player list and tabs
     const list = document.getElementById("player-list");
+    const listTab = document.getElementById("list-points-tab");
+    const creatorTab = document.getElementById("creator-points-tab");
 
-    // Create an entry for every player
-    players.forEach((player, index) => {
+    // Display the leaderboard
+    function displayLeaderboard(type) {
 
-        // Create the HTML for this player's tags
-        const tagHTML = createTagHTML(player);
+        // Sort players by the selected score
+        const sortedPlayers = [...players].sort((a, b) => {
 
-        // Create the player element
-        const playerElement = document.createElement("div");
+            if (type === "creator") {
+                return b.creatorPoints - a.creatorPoints;
+            }
 
-        playerElement.classList.add("player");
+            return b.points - a.points;
 
-        playerElement.innerHTML = `
-            <a href="playerdata.html?name=${encodeURIComponent(player.name)}" class="player-link">
+        });
 
-                <div class="player-rank">
-                    #${index + 1}
-                </div>
+        // Update which tab is active
+        listTab.classList.toggle("active", type === "list");
+        creatorTab.classList.toggle("active", type === "creator");
 
-                <div class="player-name-container">
+        // Clear the previous leaderboard
+        list.innerHTML = "";
 
-                    ${player.avatar ? `
-                        <img
-                            src="${player.avatar}"
-                            class="player-avatar"
-                            alt=""
-                        >
-                    ` : ""}
+        // Create an entry for every player
+        sortedPlayers.forEach((player, index) => {
 
-                    <div class="player-name">
-                        ${player.name}
-                        ${tagHTML}
+            const tagHTML = createTagHTML(player);
+
+            const playerElement = document.createElement("div");
+            playerElement.classList.add("player");
+
+            // Choose which score to display
+            let scoreHTML;
+
+            if (type === "creator") {
+
+                scoreHTML = `
+                    <img
+                        src="emojis/GJ_hammerIcon_001-uhd.png"
+                        class="custom-emoji"
+                        alt=""
+                    >
+                    ${player.creatorPoints} pts
+                `;
+
+            } else {
+
+                scoreHTML = `${player.points} pts`;
+
+            }
+
+            playerElement.innerHTML = `
+                <a
+                    href="playerdata.html?name=${encodeURIComponent(player.name)}"
+                    class="player-link"
+                >
+
+                    <div class="player-rank">
+                        #${index + 1}
                     </div>
 
-                </div>
+                    <div class="player-name-container">
 
-                <div class="player-points">
-                    ${player.points} pts
-                </div>
+                        ${player.avatar ? `
+                            <img
+                                src="${player.avatar}"
+                                class="player-avatar"
+                                alt=""
+                            >
+                        ` : ""}
 
-            </a>
-        `;
+                        <div class="player-name">
+                            ${player.name}
+                            ${tagHTML}
+                        </div>
 
-        list.appendChild(playerElement);
+                    </div>
 
+                    <div class="player-points">
+                        ${scoreHTML}
+                    </div>
+
+                </a>
+            `;
+
+            list.appendChild(playerElement);
+
+        });
+
+    }
+
+    // Switch between leaderboards
+    listTab.addEventListener("click", () => {
+        displayLeaderboard("list");
     });
+
+    creatorTab.addEventListener("click", () => {
+        displayLeaderboard("creator");
+    });
+
+    // Show List Points by default
+    displayLeaderboard("list");
 }
 
 loadPlayers();
