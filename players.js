@@ -53,7 +53,7 @@ async function loadPlayers() {
 
             } else {
 
-                scoreHTML = `${player.points} pts`;
+                scoreHTML = `:star: ${player.points} pts`;
 
             }
 
