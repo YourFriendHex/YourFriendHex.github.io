@@ -102,7 +102,7 @@ async function loadLevel() {
         // Change the bar's color based on the average rating
         if (ratingName === "difficulty") {
             // Difficulty: green at 0, yellow at 5, red at 10
-            if (average <= 5) {
+            if (average > 5) {
                 const amount = average / 5;
                 const red = Math.round(76 + (255 - 76) * amount);
                 const green = Math.round(175 + (255 - 175) * amount);
