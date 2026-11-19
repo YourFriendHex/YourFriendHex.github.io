@@ -20,7 +20,8 @@ async function loadPlayer() {
             creator: row[4],
             verifier: row[5],
             thumbnail: row[6],
-            status: row[7]
+            status: row[7],
+            creatorPoints: Number(row[9]) || 0
         };
 
     });
@@ -102,6 +103,13 @@ async function loadPlayer() {
     level.creator === playerName
     );
 
+    // Calculate the player's Creator Points
+    let totalCreatorPoints = 0;
+
+    createdLevels.forEach(level => {
+        totalCreatorPoints += level.creatorPoints;
+    });
+
     // Calculate the player's total points
     let totalPoints = 0;
 
@@ -132,6 +140,16 @@ async function loadPlayer() {
     // Display their total points
     document.getElementById("player-points").textContent =
         `${totalPoints} points`;
+
+    // Display their Creator Points
+    document.getElementById("player-creator-points").innerHTML = `
+        <img
+            src="emojis/GJ_hammerIcon_001-uhd.png"
+            class="custom-emoji"
+            alt=""
+        >
+        ${totalCreatorPoints} Creator Points
+    `;
 
     // Find the completed levels section
     const list = document.getElementById("completed-levels");
