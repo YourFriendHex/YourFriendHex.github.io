@@ -15,6 +15,8 @@ async function loadThemeMenu() {
 
         document.body.insertAdjacentHTML("beforeend", html);
 
+        scanForEmojis();
+
         initializeThemeMenu();
 
     } catch (error) {
