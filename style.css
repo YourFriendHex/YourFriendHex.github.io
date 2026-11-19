@@ -1581,3 +1581,99 @@ main {
     display: inline-block;
 }
 
+/* =========================
+   SIDEBAR NAVIGATION
+   ========================= */
+
+.menu-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px;
+
+    border: 1px solid var(--box-outline);
+    border-radius: 8px;
+
+    background: var(--box-background);
+    color: var(--text-color);
+
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.menu-link span {
+    width: 22px;
+    text-align: center;
+    font-size: 19px;
+}
+
+.menu-link:hover {
+    background: var(--button-hover);
+    color: var(--button-text);
+    transform: translateX(-3px);
+}
+
+/* Divider between navigation and settings */
+
+.menu-divider {
+    height: 1px;
+    background: var(--box-outline);
+    margin: 22px 0;
+}
+
+/* Appearance dropdown */
+
+.appearance-section {
+    border: 1px solid var(--box-outline);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.appearance-section summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    list-style: none;
+}
+
+.appearance-section summary::-webkit-details-marker {
+    display: none;
+}
+
+.appearance-arrow {
+    transition: transform 0.2s ease;
+}
+
+.appearance-section[open] .appearance-arrow {
+    transform: rotate(180deg);
+}
+
+.appearance-section > p {
+    color: var(--secondary-text-color);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* Theme options inside Appearance */
+
+.appearance-section .theme-options {
+    margin-top: 12px;
+}
+
