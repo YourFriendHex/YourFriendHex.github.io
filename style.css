@@ -1716,3 +1716,10 @@ main {
     border-color: var(--button-background);
 }
 
+.player-info-card #player-creator-points {
+    margin: 8px 0 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--secondary-text-color);
+}
+
