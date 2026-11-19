@@ -10,7 +10,8 @@ const customEmojis = {
     spider: "./emojis/gj_spiderBtn_off_001-uhd.png",
     swing: "./emojis/gj_swingBtn_off_001-uhd.png",
     discord: "./emojis/gj_discordIcon_001-uhd.png",
-    youtube: "./emojis/gj_ytIcon_001-uhd.png"
+    youtube: "./emojis/gj_ytIcon_001-uhd.png",
+    list: "./emojis/GJ_lsitAddBtn_001-uhd.png",
 };
 
 function scanForEmojis(root = document.body) {
