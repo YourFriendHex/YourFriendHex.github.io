@@ -14,6 +14,8 @@ const customEmojis = {
     list: "./emojis/GJ_listAddBtn_001-uhd.png",
     trophy: "./emojis/rankIcon_top10_001-uhd.png",
     arrow: "./emojis/backArrowPlain_01_001-uhd.png",
+    star: "./emojis/GJ_bigStar_001-uhd.png",
+    paint: "./emojis/GJ_paintBtn_001-uhd.png",
 };
 
 function scanForEmojis(root = document.body) {
