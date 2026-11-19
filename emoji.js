@@ -13,6 +13,7 @@ const customEmojis = {
     youtube: "./emojis/gj_ytIcon_001-uhd.png",
     list: "./emojis/GJ_listAddBtn_001-uhd.png",
     trophy: "./emojis/rankIcon_top10_001-uhd.png",
+    arrow: "./emojis/backArrowPlain_01_001-uhd.png",
 };
 
 function scanForEmojis(root = document.body) {
