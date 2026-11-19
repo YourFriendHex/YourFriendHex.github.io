@@ -58,7 +58,7 @@ function scanForEmojis(root = document.body) {
         if (lastIndex === 0) return;
 
         fragment.appendChild(
-            document.createTextNode(text.slice(lastIndex)
+            document.createTextNode(text.slice(lastIndex))
         );
 
         node.replaceWith(fragment);
