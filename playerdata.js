@@ -139,7 +139,7 @@ async function loadPlayer() {
 
     // Display their total points
     document.getElementById("player-points").textContent =
-        `${totalPoints} points`;
+        `:star: ${totalPoints} points`;
 
     // Display their Creator Points
     document.getElementById("player-creator-points").innerHTML = `
