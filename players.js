@@ -53,7 +53,13 @@ async function loadPlayers() {
 
             } else {
 
-                scoreHTML = `:star: ${player.points} pts`;
+                scoreHTML = `
+                <img
+                        src="emojis/GJ_bigStar_001-uhd.png"
+                        class="custom-emoji"
+                        alt=""
+                    >
+                    ${player.points} pts`;
 
             }
 
