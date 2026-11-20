@@ -71,8 +71,7 @@ starsContainer.setAttribute(
     `${awardedPoints} out of 5 points awarded`
 );
 
-document.getElementById("awarded-points-value").textContent =
-    `${awardedPoints} / 5`;
+
    
     // Find all completion entries for this level,
     // excluding the verifier
