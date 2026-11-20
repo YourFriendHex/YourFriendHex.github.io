@@ -58,7 +58,7 @@ starsContainer.textContent = "";
 
 for (let i = 0; i < 5; i++) {
     const emoji = document.createTextNode(
-        i < listPoints ? ":star:" : ":star_grey:"
+        i < listPoints ? ":rate_star:" : ":grey_star:"
     );
 
     starsContainer.appendChild(emoji);
