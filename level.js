@@ -64,11 +64,11 @@ for (let i = 0; i < 5; i++) {
     starsContainer.appendChild(emoji);
 }
 
-scanForEmojis(starContainer);
+scanForEmojis(starsContainer);
 
 starsContainer.setAttribute(
     "aria-label",
-    `${awarded} out of 5 points awarded`
+    `${awardedPoints} out of 5 points awarded`
 );
 
 document.getElementById("awarded-points-value").textContent =
