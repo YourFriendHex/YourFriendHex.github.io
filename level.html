@@ -25,37 +25,57 @@
         
         <div class="level-page">
 
-            <img
-            id="level-thumbnail"
-            class="level-thumbnail-large"
-            alt="No Thumbnail"
-            >
-            
-            <div class="level-rank">
-                Rank: <span id="level-rank">Loading...</span>
+            <div class="level-overview">
+
+    <!-- Level thumbnail -->
+    <img
+        id="level-thumbnail"
+        class="level-thumbnail-large"
+        alt="Level thumbnail"
+    >
+
+    <!-- Level information -->
+    <div class="level-info-panel">
+
+        <div class="level-info-item">
+            <span class="level-info-label">Rank</span>
+            <strong id="level-rank">Loading...</strong>
+        </div>
+
+        <div class="level-info-item">
+            <span class="level-info-label">Points</span>
+            <strong id="level-points">Loading...</strong>
+        </div>
+
+        <div class="level-info-item">
+            <span class="level-info-label">List Points</span>
+
+            <div id="list-points-stars"
+                 class="list-points-stars">
+                Loading...
             </div>
 
-            
-            <div class="level-points">
-                <span id="level-points">Loading...</span> Points
-            </div>
+            <span id="list-points-value"></span>
+        </div>
 
-            
-            <div class="level-verifier">
+        <div class="level-info-item">
+            <span class="level-info-label">Verified by</span>
 
-                Verified by
+            <strong id="level-verifier">Loading...</strong>
+        </div>
 
-                <span id="level-verifier"></span>
+        <div class="level-info-item level-info-wide">
+            <span class="level-info-label">Level ID</span>
 
-                 <span id="level-verifier-tags"></span>
-
-            </div>
-
-            
-            <div class="level-id">
-                Level ID: <span id="level-id">Loading...</span>
-
+            <div class="level-id-content">
+                <strong id="level-id">Loading...</strong>
                 <button id="copy-id-button">Copy ID</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
             
 <div class="level-stats-grid">
 
