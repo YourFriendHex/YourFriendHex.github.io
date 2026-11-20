@@ -16,8 +16,8 @@ const customEmojis = {
     arrow: "./emojis/backArrowPlain_01_001-uhd.png",
     star: "./emojis/GJ_bigStar_001-uhd.png",
     paint: "./emojis/GJ_paintBtn_001-uhd.png",
-    rate_star: "./emojis/GJ_starsIcon_001-uhd.png",
-    grey_star: "./emojis/GJ_sStarsIcon_gray_001-uhd.png",
+    grey_star: "./emojis/GJ_starsIcon_gray_001-uhd.png",
+    rate_star: "./emojis/GJ_sStarsIcon_001-uhd.png",
 };
 
 function scanForEmojis(root = document.body) {
