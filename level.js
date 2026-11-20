@@ -54,21 +54,15 @@ const awardedPoints = Math.min(5, Math.max(0, Math.floor(level.awardedPoints)));
 
 const starsContainer = document.getElementById("awarded-points-stars");
 
-starsContainer.innerHTML = Array.from({ length: 5 }, (_, index) => {
+starsContainer.textContent = "";
 
-    const lit = index < awardedPoints;
+for (let i = 0; i < 5; i++) {
+    const emoji = document.createTextNode(
+        i < listPoints ? ":star:" : ":star_grey:"
+    );
 
-    return `
-        <img
-            src="${lit
-                ? "emojis/GJ_sStarsIcon_001-uhd.png"
-                : "emojis/GJ_starsIcon_gray_001-uhd.png"}"
-            class="awarded-point-star"
-            alt=""
-        >
-    `;
-
-}).join("");
+    starsContainer.appendChild(emoji);
+}
 
 starsContainer.setAttribute(
     "aria-label",
