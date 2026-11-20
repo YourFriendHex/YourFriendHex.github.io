@@ -154,7 +154,7 @@ async function loadPlayer() {
             class="custom-emoji"
             alt=""
         >
-        ${totalCreatorPoints} Creator Points
+        ${totalCreatorPoints} List Creator Points
     `;
 
     // Find the completed levels section
