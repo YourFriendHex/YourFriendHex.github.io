@@ -1723,3 +1723,127 @@ main {
     color: var(--secondary-text-color);
 }
 
+/* =========================
+   LEVEL OVERVIEW
+   ========================= */
+
+.level-overview {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 25px;
+    align-items: stretch;
+    margin-bottom: 25px;
+}
+
+.level-overview .level-thumbnail-large {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 10px;
+}
+
+/* Information panel */
+
+.level-info-panel {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.level-info-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+
+    min-width: 0;
+    padding: 15px;
+
+    background: var(--box-background);
+    border: 1px solid var(--box-outline);
+    border-radius: 10px;
+
+    color: var(--text-color);
+}
+
+.level-info-label {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--secondary-text-color);
+    letter-spacing: 0.5px;
+}
+
+.level-info-item strong {
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.level-info-wide {
+    grid-column: span 2;
+}
+
+/* Level ID */
+
+.level-id-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* List Points stars */
+
+.list-points-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.list-point-star {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+#list-points-value {
+    font-size: 12px;
+    color: var(--secondary-text-color);
+}
+
+/* Mobile layout */
+
+@media (max-width: 700px) {
+
+    .level-overview {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .level-overview .level-thumbnail-large {
+        min-height: 0;
+        height: auto;
+    }
+
+    .level-info-panel {
+        gap: 8px;
+    }
+
+    .level-info-item {
+        padding: 12px;
+    }
+
+    .level-info-item strong {
+        font-size: 17px;
+    }
+
+    .list-point-star {
+        width: 23px;
+        height: 23px;
+    }
+
+}
+
