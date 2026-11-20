@@ -64,6 +64,8 @@ for (let i = 0; i < 5; i++) {
     starsContainer.appendChild(emoji);
 }
 
+scanForEmojis(starContainer);
+
 starsContainer.setAttribute(
     "aria-label",
     `${awarded} out of 5 points awarded`
