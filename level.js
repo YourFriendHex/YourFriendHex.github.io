@@ -26,7 +26,8 @@ async function loadLevel() {
             creator: row[4],
             verifier: row[5],
             thumbnail: row[6],
-            notes: row[8]
+            notes: row[8],
+            awardedPoints: Number(row[9]) || 0
         };
 
     });
@@ -48,7 +49,34 @@ async function loadLevel() {
     document.getElementById("level-thumbnail").src = level.thumbnail;
     document.getElementById("level-notes").textContent = level.notes || "No verifier notes have been added.";
 
-    
+    // Display List Points as five stars
+const awardedPoints = Math.min(5, Math.max(0, Math.floor(level.awardedPoints)));
+
+const starsContainer = document.getElementById("awarded-points-stars");
+
+starsContainer.innerHTML = Array.from({ length: 5 }, (_, index) => {
+
+    const lit = index < awardedPoints;
+
+    return `
+        <img
+            src="${lit
+                ? "emojis/GJ_sStarsIcon_001-uhd.png"
+                : "emojis/GJ_starsIcon_gray_001-uhd.png"}"
+            class="awarded-point-star"
+            alt=""
+        >
+    `;
+
+}).join("");
+
+starsContainer.setAttribute(
+    "aria-label",
+    `${awarded} out of 5 points awarded`
+);
+
+document.getElementById("awarded-points-value").textContent =
+    `${awardedPoints} / 5`;
    
     // Find all completion entries for this level,
     // excluding the verifier
