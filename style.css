@@ -1797,13 +1797,13 @@ main {
 
 /* List Points stars */
 
-.list-points-stars {
+.awarded-points-stars {
     display: flex;
     align-items: center;
     gap: 4px;
 }
 
-.list-point-star {
+.awarded-point-star {
     width: 28px;
     height: 28px;
     object-fit: contain;
@@ -1840,7 +1840,7 @@ main {
         font-size: 17px;
     }
 
-    .list-point-star {
+    .awarded-point-star {
         width: 23px;
         height: 23px;
     }
